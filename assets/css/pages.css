@@ -206,6 +206,54 @@
     transition: var(--transition);
 }
 
+/* Placeholder vetorial para cards de membros (imagens reais indisponíveis) */
+.member-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.member-img-placeholder::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 32px solid rgba(255, 255, 255, 0.06);
+    top: -55px;
+    right: -55px;
+}
+
+.member-img-placeholder::after {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 22px solid rgba(255, 255, 255, 0.06);
+    bottom: -35px;
+    left: -35px;
+}
+
+.member-img-placeholder i {
+    font-size: 72px;
+    color: rgba(255, 255, 255, 0.85);
+    position: relative;
+    z-index: 1;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.25));
+    transition: var(--transition);
+}
+
+.team-member:hover .member-img-placeholder i {
+    transform: scale(1.1);
+    color: rgba(255, 255, 255, 1);
+}
+
 .team-member:hover .member-image img {
     transform: scale(1.1);
 }
