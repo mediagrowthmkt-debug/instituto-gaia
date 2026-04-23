@@ -5,9 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Instituto Gaia Soul - Parceiro oficial da UNESCO na proteção dos oceanos. Formar, engajar e sensibilizar pessoas a protegerem o oceano.">
     <title>Instituto Gaia Soul | Parceiro UNESCO - Conservação Marinha</title>
+
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://institutogaiasoul.org/">
+    <meta property="og:title" content="Instituto Gaia Soul | Parceiro UNESCO - Conservação Marinha">
+    <meta property="og:description" content="Parceiro oficial da UNESCO na Década do Oceão. Formar, engajar e sensibilizar pessoas a protegerem o oceano.">
+    <meta property="og:image" content="assets/images/plano-de-fundo-baleia-desktop.jpg">
+    <meta property="og:locale" content="pt_BR">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Instituto Gaia Soul | Parceiro UNESCO">
+    <meta name="twitter:description" content="Parceiro oficial da UNESCO na Década do Oceão. Forming, engajando e sensibilizando pessoas a protegerem o oceano.">
+    <meta name="twitter:image" content="assets/images/plano-de-fundo-baleia-desktop.jpg">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpg">
+    <!-- TODO: Converter favicon.jpg para favicon.png (32x32) e salvar em assets/images/favicon.png -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <!-- Preload imagem hero para performance -->
+    <link rel="preload" as="image" href="assets/images/plano-de-fundo-baleia-desktop.jpg">
     
     <!-- Google Fonts - Raleway -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,11 +70,11 @@
                 
                 <div class="nav-actions">
                     <div class="social-icons">
-                        <a href="https://instagram.com/institutogaiasoul" target="_blank" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://facebook.com/institutogaiasoul" target="_blank" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://youtube.com/@institutogaiasoul" target="_blank" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://linkedin.com/company/institutogaiasoul" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://tiktok.com/@institutogaiasoul" target="_blank" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://instagram.com/institutogaiasoul" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/institutogaiasoul" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtube.com/@institutogaiasoul" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/institutogaiasoul" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://tiktok.com/@institutogaiasoul" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                     <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
                         <i class="fas fa-bars"></i>
@@ -95,7 +112,7 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-images" data-aos="fade-right">
-                    <img src="assets/images/ocean-gallery.png" alt="Vida Marinha - Corais, Golfinhos, Tartarugas e Estrelas do Mar" class="ocean-gallery-image">
+                    <img src="assets/images/ocean-gallery.png" alt="Vida Marinha - Corais, Golfinhos, Tartarugas e Estrelas do Mar" class="ocean-gallery-image" loading="lazy">
                 </div>
                 <div class="about-content" data-aos="fade-left">
                     <span class="section-tag">Sobre Nós</span>
@@ -214,7 +231,6 @@
 
     <!-- Stats Section -->
     <section class="stats" id="impacto">
-        <div class="stats-background"></div>
         <div class="stats-overlay"></div>
         <div class="container">
             <div class="stats-grid">
@@ -251,7 +267,7 @@
             <div class="team-grid">
                 <div class="team-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="team-image">
-                        <img src="assets/images/a1.jpg" alt="Membro da Equipe">
+                        <img src="assets/images/a1.jpg" alt="Equipe de Pesquisa - Instituto Gaia Soul" loading="lazy">
                     </div>
                     <div class="team-info">
                         <i class="fas fa-leaf team-icon"></i>
@@ -261,7 +277,7 @@
                 </div>
                 <div class="team-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="team-image">
-                        <img src="assets/images/a2.jpg" alt="Membro da Equipe">
+                        <img src="assets/images/a2.jpg" alt="Equipe de Educação - Instituto Gaia Soul" loading="lazy">
                     </div>
                     <div class="team-info">
                         <i class="fas fa-graduation-cap team-icon"></i>
@@ -271,7 +287,7 @@
                 </div>
                 <div class="team-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="team-image">
-                        <img src="assets/images/a3.jpg" alt="Membro da Equipe">
+                        <img src="assets/images/a3.jpg" alt="Equipe de Comunidade - Instituto Gaia Soul" loading="lazy">
                     </div>
                     <div class="team-info">
                         <i class="fas fa-hands-helping team-icon"></i>
@@ -293,7 +309,7 @@
             <div class="projects-grid">
                 <div class="project-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="project-image">
-                        <img src="assets/images/plano-de-fundo-baleia-desktop.jpg" alt="Conservação Marinha">
+                        <img src="assets/images/plano-de-fundo-baleia-desktop.jpg" alt="Conservação Marinha" loading="lazy">
                         <div class="project-overlay">
                             <span class="project-category">Conservação</span>
                         </div>
@@ -301,12 +317,12 @@
                     <div class="project-content">
                         <h3>Conservação Marinha</h3>
                         <p>Proteção de ecossistemas marinhos e costeiros através de pesquisa e monitoramento científico.</p>
-                        <a href="#" class="project-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="project-link" aria-label="Saiba mais sobre Conservação Marinha">Saiba Mais <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <img src="assets/images/imagnes-gaia.png" alt="Educação Ambiental">
+                        <img src="assets/images/imagnes-gaia.png" alt="Educação Ambiental" loading="lazy">
                         <div class="project-overlay">
                             <span class="project-category">Educação</span>
                         </div>
@@ -314,12 +330,12 @@
                     <div class="project-content">
                         <h3>Educação Ambiental</h3>
                         <p>Programas educativos para escolas e comunidades sobre a importância da conservação marinha.</p>
-                        <a href="#" class="project-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="project-link" aria-label="Saiba mais sobre Educação Ambiental">Saiba Mais <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="project-card featured" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <img src="assets/images/gaia-soul.png" alt="Mata Quântica">
+                        <img src="assets/images/gaia-soul.png" alt="Mata Quântica - Projeto de Restauração Ecológica" loading="lazy">
                         <div class="project-overlay">
                             <span class="project-category">Novo Projeto</span>
                         </div>
@@ -327,12 +343,12 @@
                     <div class="project-content">
                         <h3>Mata Quântica</h3>
                         <p>Projeto inovador de restauração ecológica que integra tecnologia e conservação da biodiversidade.</p>
-                        <a href="#" class="project-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="project-link" aria-label="Saiba mais sobre Mata Quântica">Saiba Mais <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-image">
-                        <img src="assets/images/mobile-baleia-02.jpg" alt="Gaiaçou">
+                        <img src="assets/images/mobile-baleia-02.jpg" alt="Gaiaçou - Experiências Náuticas" loading="lazy">
                         <div class="project-overlay">
                             <span class="project-category">Turismo Sustentável</span>
                         </div>
@@ -340,12 +356,12 @@
                     <div class="project-content">
                         <h3>Gaiaçou - Experiências Náuticas</h3>
                         <p>Aluguel de embarcações para famílias e grupos. Diárias completas para experiências inesquecíveis no mar.</p>
-                        <a href="#" class="project-link">Agendar <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="project-link" aria-label="Agendar experiência náutica Gaiaçou">Agendar <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-image">
-                        <img src="assets/images/a1.jpg" alt="Pesquisa Científica">
+                        <img src="assets/images/a1.jpg" alt="Pesquisa Científica Marinha" loading="lazy" style="object-position: center 30%;">
                         <div class="project-overlay">
                             <span class="project-category">Pesquisa</span>
                         </div>
@@ -353,12 +369,12 @@
                     <div class="project-content">
                         <h3>Pesquisa Científica</h3>
                         <p>Estudos sobre biodiversidade marinha em parceria com universidades e centros de pesquisa.</p>
-                        <a href="#" class="project-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="project-link" aria-label="Saiba mais sobre Pesquisa Científica">Saiba Mais <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="project-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="project-image">
-                        <img src="assets/images/a2.jpg" alt="Mobilização Social">
+                        <img src="assets/images/a2.jpg" alt="Mobilização Social e Engajamento Comunitário" loading="lazy" style="object-position: center bottom;">
                         <div class="project-overlay">
                             <span class="project-category">Comunidade</span>
                         </div>
@@ -366,7 +382,7 @@
                     <div class="project-content">
                         <h3>Mobilização Social</h3>
                         <p>Engajamento de comunidades costeiras em ações de conservação e desenvolvimento sustentável.</p>
-                        <a href="#" class="project-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="project-link" aria-label="Saiba mais sobre Mobilização Social">Saiba Mais <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -423,7 +439,6 @@
 
     <!-- Progress Section -->
     <section class="progress-section">
-        <div class="progress-background"></div>
         <div class="progress-overlay"></div>
         <div class="container">
             <div class="progress-content" data-aos="fade-up">
@@ -509,7 +524,6 @@
 
     <!-- CTA Sections -->
     <section class="cta-green">
-        <div class="cta-background"></div>
         <div class="cta-overlay"></div>
         <div class="container">
             <div class="cta-content" data-aos="fade-right">
@@ -521,7 +535,6 @@
     </section>
 
     <section class="cta-blue">
-        <div class="cta-background"></div>
         <div class="cta-overlay"></div>
         <div class="container">
             <div class="cta-content right" data-aos="fade-left">
@@ -543,19 +556,19 @@
             </div>
             <div class="partners-grid" data-aos="fade-up" data-aos-delay="100">
                 <div class="partner-card featured">
-                    <img src="assets/images/unesco-logo.svg" alt="UNESCO" onerror="this.parentElement.innerHTML='<div class=partner-placeholder><i class=fas fa-university></i><span>UNESCO</span></div>'">
+                    <img src="assets/images/unesco-logo.svg" alt="UNESCO - Parceiro Oficial" loading="lazy" onerror="this.parentElement.innerHTML='<div class=partner-placeholder><i class=fas fa-university></i><span>UNESCO</span></div>'">
                     <span class="partner-name">UNESCO - Década do Oceano</span>
                 </div>
                 <div class="partner-card">
-                    <img src="assets/images/instituto-baleia-jubarte.png" alt="Instituto Baleia Jubarte" onerror="this.parentElement.innerHTML='<div class=partner-placeholder><i class=fas fa-water></i><span>Baleia Jubarte</span></div>'">
+                    <img src="assets/images/instituto-baleia-jubarte.png" alt="Instituto Baleia Jubarte" loading="lazy" onerror="this.parentElement.innerHTML='<div class=partner-placeholder><i class=fas fa-water></i><span>Baleia Jubarte</span></div>'">
                     <span class="partner-name">Instituto Baleia Jubarte</span>
                 </div>
                 <div class="partner-card">
-                    <img src="assets/images/oceano-azul.png" alt="Oceano Azul" onerror="this.parentElement.innerHTML='<div class=partner-placeholder><i class=fas fa-fish></i><span>Oceano Azul</span></div>'">
+                    <img src="assets/images/oceano-azul.png" alt="Oceano Azul" loading="lazy" onerror="this.parentElement.innerHTML='<div class=partner-placeholder><i class=fas fa-fish></i><span>Oceano Azul</span></div>'">
                     <span class="partner-name">Oceano Azul</span>
                 </div>
                 <div class="partner-card">
-                    <img src="assets/images/associacao-brasileira.png" alt="Associação Brasileira" onerror="this.parentElement.innerHTML='<div class=partner-placeholder><i class=fas fa-handshake></i><span>Assoc. Brasileira</span></div>'">
+                    <img src="assets/images/associacao-brasileira.png" alt="Associação Brasileira de Conservação" loading="lazy" onerror="this.parentElement.innerHTML='<div class=partner-placeholder><i class=fas fa-handshake></i><span>Assoc. Brasileira</span></div>'">
                     <span class="partner-name">Associação Brasileira de Conservação</span>
                 </div>
             </div>
@@ -571,7 +584,7 @@
                 <p class="section-description">Conecte-se com outros guardiões do oceano</p>
             </div>
             <div class="community-grid">
-                <a href="https://chat.whatsapp.com/institutogaiasoul" target="_blank" class="community-card whatsapp" data-aos="fade-up" data-aos-delay="0">
+                <a href="https://chat.whatsapp.com/institutogaiasoul" target="_blank" rel="noopener noreferrer" class="community-card whatsapp" data-aos="fade-up" data-aos-delay="0">
                     <div class="community-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
@@ -580,7 +593,7 @@
                         <p>Receba atualizações e participe de discussões</p>
                     </div>
                 </a>
-                <a href="https://t.me/institutogaiasoul" target="_blank" class="community-card telegram" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://t.me/institutogaiasoul" target="_blank" rel="noopener noreferrer" class="community-card telegram" data-aos="fade-up" data-aos-delay="100">
                     <div class="community-icon">
                         <i class="fab fa-telegram"></i>
                     </div>
@@ -589,7 +602,7 @@
                         <p>Notícias e conteúdos exclusivos</p>
                     </div>
                 </a>
-                <a href="https://instagram.com/institutogaiasoul" target="_blank" class="community-card instagram" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://instagram.com/institutogaiasoul" target="_blank" rel="noopener noreferrer" class="community-card instagram" data-aos="fade-up" data-aos-delay="200">
                     <div class="community-icon">
                         <i class="fab fa-instagram"></i>
                     </div>
@@ -613,35 +626,35 @@
             <div class="blog-grid">
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="blog-image">
-                        <img src="assets/images/plano-de-fundo-baleia-desktop.jpg" alt="Década do Oceano">
+                        <img src="assets/images/plano-de-fundo-baleia-desktop.jpg" alt="Parceria com a UNESCO na Década do Oceão" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <span class="blog-date"><i class="far fa-calendar"></i> 15 Jan 2025</span>
                         <h3>Década do Oceano: Nosso Compromisso com a UNESCO</h3>
                         <p>Saiba como nossa parceria com a UNESCO está transformando a conservação marinha no Brasil.</p>
-                        <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="blog-link" aria-label="Ler artigo: Década do Oceão, nosso compromisso com a UNESCO">Ler mais <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="blog-image">
-                        <img src="assets/images/mobile-baleia-02.jpg" alt="Projeto Mata Quântica">
+                        <img src="assets/images/mobile-baleia-02.jpg" alt="Projeto Mata Quântica - Restauração Ecológica" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <span class="blog-date"><i class="far fa-calendar"></i> 10 Jan 2025</span>
                         <h3>Mata Quântica: Inovação em Restauração Ecológica</h3>
                         <p>Conheça nosso novo projeto que integra tecnologia e conservação da biodiversidade.</p>
-                        <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="blog-link" aria-label="Ler artigo: Mata Quântica, Inovação em Restauração Ecológica">Ler mais <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
                 <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-image">
-                        <img src="assets/images/imagnes-gaia.png" alt="ODS e Oceanos">
+                        <img src="assets/images/imagnes-gaia.png" alt="ODS - Objetivos de Desenvolvimento Sustentável e Oceãos" loading="lazy">
                     </div>
                     <div class="blog-content">
                         <span class="blog-date"><i class="far fa-calendar"></i> 05 Jan 2025</span>
                         <h3>Como os ODS Guiam Nossas Ações</h3>
                         <p>Entenda como os Objetivos de Desenvolvimento Sustentável direcionam nosso trabalho.</p>
-                        <a href="#" class="blog-link">Ler mais <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" class="blog-link" aria-label="Ler artigo: Como os ODS Guiam Nossas Ações">Ler mais <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </article>
             </div>
@@ -661,7 +674,7 @@
             <div class="campaigns-grid">
                 <div class="campaign-card" data-aos="fade-up" data-aos-delay="0">
                     <div class="campaign-image">
-                        <img src="assets/images/plano-de-fundo-baleia-desktop.jpg" alt="Campanha 1">
+                        <img src="assets/images/plano-de-fundo-baleia-desktop.jpg" alt="Campanha: Proteção das Baleias" loading="lazy">
                     </div>
                     <div class="campaign-content">
                         <h3>Proteção das Baleias</h3>
@@ -676,7 +689,7 @@
                 </div>
                 <div class="campaign-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="campaign-image">
-                        <img src="assets/images/mobile-baleia-02.jpg" alt="Campanha 2">
+                        <img src="assets/images/mobile-baleia-02.jpg" alt="Campanha: Limpeza das Praias" loading="lazy">
                     </div>
                     <div class="campaign-content">
                         <h3>Limpeza das Praias</h3>
@@ -691,7 +704,7 @@
                 </div>
                 <div class="campaign-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="campaign-image">
-                        <img src="assets/images/imagnes-gaia.png" alt="Campanha 3">
+                        <img src="assets/images/imagnes-gaia.png" alt="Campanha: Reflorestamento" loading="lazy">
                     </div>
                     <div class="campaign-content">
                         <h3>Reflorestamento</h3>
@@ -706,7 +719,7 @@
                 </div>
                 <div class="campaign-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="campaign-image">
-                        <img src="assets/images/gaia-soul.png" alt="Campanha 4">
+                        <img src="assets/images/gaia-soul.png" alt="Campanha: Educação Ambiental nas Escolas" loading="lazy">
                     </div>
                     <div class="campaign-content">
                         <h3>Educação Ambiental</h3>
@@ -734,10 +747,10 @@
                 <div class="newsletter-form" data-aos="fade-left">
                     <form id="newsletter-form">
                         <div class="form-group">
-                            <input type="text" placeholder="Seu nome" required>
+                            <input type="text" name="nome" placeholder="Seu nome" aria-label="Seu nome completo" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Seu e-mail" required>
+                            <input type="email" name="email" placeholder="Seu e-mail" aria-label="Seu endereço de e-mail" required>
                         </div>
                         <button type="submit" class="btn btn-accent">Inscrever-se</button>
                     </form>
@@ -756,10 +769,11 @@
                     <p class="section-description">
                         Tem alguma dúvida ou quer saber mais sobre nossos projetos? Entre em contato conosco!
                     </p>
-                    <a href="#" class="btn btn-outline">Fale Conosco</a>
+                    <!-- TODO: Substituir pelo número real de WhatsApp do cliente -->
+                    <a href="https://wa.me/5500000000000" class="btn btn-outline" target="_blank" rel="noopener noreferrer" aria-label="Fale Conosco pelo WhatsApp">Fale Conosco</a>
                 </div>
                 <div class="contact-image" data-aos="fade-left">
-                    <img src="assets/images/gaia-soul.png" alt="Instituto Gaia Soul">
+                    <img src="assets/images/gaia-soul.png" alt="Instituto Gaia Soul - Conservação Marinha" loading="lazy">
                 </div>
             </div>
         </div>
@@ -771,6 +785,8 @@
             <div class="donate-content" data-aos="fade-up">
                 <h2>Faça Parte da Mudança</h2>
                 <p>Sua contribuição faz a diferença na preservação do meio ambiente. Juntos podemos construir um futuro mais sustentável.</p>
+                <!-- TODO: Substituir href="#" pelo link real de doação quando disponibilizado pelo cliente -->
+                <a href="#" class="btn btn-primary donate-cta" aria-label="Quero Apoiar o Instituto Gaia Soul">Quero Apoiar</a>
             </div>
         </div>
     </section>
@@ -795,27 +811,29 @@
                         <li><a href="#ods">ODS</a></li>
                         <li><a href="#blog">Blog</a></li>
                         <li><a href="#contato">Contato</a></li>
-                        <li><a href="/loja" target="_blank">Loja</a></li>
+                        <li><a href="/loja" target="_blank" rel="noopener noreferrer">Loja</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contato</h4>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> contato@institutogaiasoul.ong.br</li>
-                        <li><i class="fas fa-phone"></i> (11) 99999-9999</li>
-                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP - Brasil</li>
+                        <li><i class="fas fa-envelope"></i> contato@institutogaiasoul.org</li>
+                        <!-- TODO: Inserir telefone real do cliente -->
+                        <li><i class="fas fa-phone"></i> (00) 00000-0000</li>
+                        <!-- TODO: Confirmar endereço/cidade com o cliente -->
+                        <li><i class="fas fa-map-marker-alt"></i> Brasil</li>
                     </ul>
                 </div>
                 <div class="footer-newsletter">
                     <h4>Redes Sociais</h4>
                     <p>Siga-nos e faça parte da comunidade</p>
                     <div class="footer-social">
-                        <a href="https://instagram.com/institutogaiasoul" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://facebook.com/institutogaiasoul" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://youtube.com/@institutogaiasoul" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://linkedin.com/company/institutogaiasoul" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://tiktok.com/@institutogaiasoul" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://t.me/institutogaiasoul" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://instagram.com/institutogaiasoul" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/institutogaiasoul" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://youtube.com/@institutogaiasoul" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://linkedin.com/company/institutogaiasoul" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://tiktok.com/@institutogaiasoul" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://t.me/institutogaiasoul" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
                     </div>
                     <h4 style="margin-top: 1.5rem;">Newsletter</h4>
                     <form class="footer-form">
@@ -827,7 +845,7 @@
         </div>
         <div class="footer-bottom">
             <div class="container">
-                <p>&copy; 2025 Instituto Gaia Soul. Todos os direitos reservados. | Parceiro Oficial UNESCO</p>
+                <p>&copy; 2026 Instituto Gaia Soul. Todos os direitos reservados. | Parceiro Oficial UNESCO</p>
             </div>
         </div>
     </footer>
@@ -838,7 +856,8 @@
     </a>
 
     <!-- WhatsApp Button -->
-    <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank" aria-label="WhatsApp">
+    <!-- TODO: Substituir pelo número real de WhatsApp do cliente -->
+    <a href="https://wa.me/5500000000000" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 

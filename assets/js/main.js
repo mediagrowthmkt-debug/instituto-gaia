@@ -269,7 +269,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // =====================================================
     // PARALLAX EFFECT (SUBTLE)
     // =====================================================
-    const parallaxElements = document.querySelectorAll('.hero-background, .stats-background, .progress-background');
+    // Parallax apenas no hero (divs .stats-background e .progress-background foram removidas do HTML)
+    const parallaxElements = document.querySelectorAll('.hero-background');
     
     if (parallaxElements.length > 0) {
         window.addEventListener('scroll', function() {
@@ -302,20 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lazyImages.forEach(img => imageObserver.observe(img));
     }
 
-    // =====================================================
-    // HOVER EFFECTS FOR CARDS
-    // =====================================================
-    const cards = document.querySelectorAll('.project-card, .team-card, .campaign-card, .value-card');
-    
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
+    // Hover em cards tratado exclusivamente via CSS (:hover) — bloco JS removido para evitar conflito.
 
     // =====================================================
     // TYPING EFFECT (OPTIONAL - FOR HERO TITLE)

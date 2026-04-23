@@ -459,7 +459,7 @@ ul {
 .mission {
     position: relative;
     padding: 150px 0;
-    background: url('../images/mobile-baleia-02.jpg') center/cover no-repeat;
+    background: url('../images/plano-de-fundo-baleia-desktop.jpg') bottom center/cover no-repeat;
 }
 
 .mission-overlay {
@@ -1102,6 +1102,11 @@ ul {
     color: var(--color-white);
     max-width: 700px;
     margin: 0 auto;
+}
+
+.donate-cta {
+    display: inline-block;
+    margin-top: 35px;
 }
 
 /* =====================================================
