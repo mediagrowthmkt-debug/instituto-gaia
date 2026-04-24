@@ -1,3 +1,8 @@
 {
-    "snyk.advanced.autoSelectOrganization": true
+    "snyk.advanced.autoSelectOrganization": true,
+    "chat.tools.terminal.autoApprove": {
+        "gh": true,
+        "Write-Host": true,
+        "ConvertFrom-Json": true
+    }
 }
