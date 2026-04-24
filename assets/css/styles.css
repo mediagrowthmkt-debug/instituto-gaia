@@ -1735,19 +1735,26 @@ ul {
 }
 
 .cause-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.2);
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 15px;
+    box-shadow: 0 6px 20px rgba(5, 91, 166, 0.45);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.cause-card:hover .cause-icon {
+    transform: scale(1.12) rotate(-6deg);
+    box-shadow: 0 10px 30px rgba(5, 91, 166, 0.65);
 }
 
 .cause-icon i {
-    font-size: 24px;
-    color: var(--color-light-blue);
+    font-size: 26px;
+    color: #ffffff;
 }
 
 .cause-card h4 {
@@ -2320,19 +2327,26 @@ ul {
 }
 
 .impact-icon {
-    width: 62px;
-    height: 62px;
-    background: rgba(255,255,255,0.15);
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 18px;
+    box-shadow: 0 6px 20px rgba(5, 91, 166, 0.45);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.impact-card:hover .impact-icon {
+    transform: scale(1.12) rotate(-6deg);
+    box-shadow: 0 10px 30px rgba(5, 91, 166, 0.65);
 }
 
 .impact-icon i {
     font-size: 26px;
-    color: var(--color-light-blue);
+    color: #ffffff;
 }
 
 .impact-number {
@@ -2778,20 +2792,6 @@ ul {
 /* ---- Donate: gradiente premium ---- */
 .donate {
     background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
-}
-
-/* ---- Footer: borda topo gradiente ---- */
-.footer {
-    border-top: 3px solid transparent;
-    background-clip: padding-box;
-    position: relative;
-}
-.footer::before {
-    content: '';
-    display: block;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent), var(--color-light-blue));
-    margin-bottom: -3px;
 }
 
 /* ---- Community cards: hover mais suave ---- */
