@@ -3304,20 +3304,6 @@ ul {
    -------------------------------------------------- */
 .section-tag {
     position: relative;
-    padding-left: 16px;
-}
-
-.section-tag::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-    opacity: 0.7;
 }
 
 /* --------------------------------------------------
