@@ -1140,28 +1140,80 @@ ul {
    DONATE SECTION
    ===================================================== */
 .donate {
-    padding: var(--section-padding);
-    background-color: var(--color-accent);
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.donate::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 60px solid rgba(255,255,255,0.05);
+    pointer-events: none;
+}
+
+.donate-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.15);
+    padding: 8px 18px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
 }
 
 .donate-content h2 {
     font-size: 50px;
     font-weight: 900;
     color: var(--color-white);
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    line-height: 1.1;
 }
 
 .donate-content p {
     font-size: 20px;
-    color: var(--color-white);
-    max-width: 700px;
+    color: rgba(255,255,255,0.88);
+    max-width: 620px;
     margin: 0 auto;
 }
 
+.donate-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 38px;
+}
+
 .donate-cta {
-    display: inline-block;
-    margin-top: 35px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: var(--color-primary);
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 32px;
+    border-radius: var(--radius-md);
+    border: 2px solid white;
+    transition: var(--transition);
+}
+
+.donate-cta:hover {
+    background: transparent;
+    color: white;
 }
 
 /* =====================================================
@@ -2723,6 +2775,23 @@ ul {
     -webkit-backdrop-filter: blur(14px);
     border: 1px solid rgba(255, 255, 255, 0.22);
     transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+    padding: 35px 20px;
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.stat-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 20px;
+    color: white;
+    box-shadow: 0 6px 18px rgba(5,91,166,0.45);
 }
 .stat-card:hover {
     background: rgba(255, 255, 255, 0.20);
@@ -2847,5 +2916,119 @@ ul {
 ::selection {
     background: var(--color-secondary);
     color: #ffffff;
+}
+
+/* =====================================================
+   HERO TRUST BAR
+   ===================================================== */
+.hero-trust-bar {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.hero-trust-bar span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.78);
+    letter-spacing: 0.3px;
+}
+
+.hero-trust-bar span i {
+    color: #4EBF7D;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .hero-trust-bar {
+        justify-content: center;
+        gap: 14px;
+    }
+}
+
+/* =====================================================
+   MVV ICONS — gradiente premium
+   ===================================================== */
+.mvv-icon {
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent)) !important;
+    box-shadow: 0 8px 22px rgba(5, 91, 166, 0.35);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.mvv-card:hover .mvv-icon {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 12px 30px rgba(5, 91, 166, 0.5);
+}
+
+/* =====================================================
+   STAT CARDS — icon hover
+   ===================================================== */
+.stat-card:hover .stat-icon {
+    transform: scale(1.1) rotate(-5deg);
+    transition: transform 0.35s ease;
+}
+
+/* =====================================================
+   SECTION TITLE — ODS destaque
+   ===================================================== */
+.ods-card.highlight {
+    border: 2px solid var(--color-secondary);
+    position: relative;
+}
+
+.ods-card.highlight::after {
+    content: 'Foco Principal';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-secondary);
+    color: white;
+    padding: 3px 12px;
+    border-radius: var(--radius-full);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+/* =====================================================
+   DONATE ACTIONS responsive
+   ===================================================== */
+@media (max-width: 600px) {
+    .donate-actions { flex-direction: column; align-items: center; }
+    .donate-actions .btn { width: 100%; max-width: 320px; }
+    .donate-content h2 { font-size: 34px; }
+}
+
+/* =====================================================
+   ABOUT — refinamento imagem
+   ===================================================== */
+.ocean-gallery-image {
+    box-shadow: 0 25px 60px rgba(1, 17, 64, 0.18);
+}
+
+/* =====================================================
+   BLOG cards — data refinada
+   ===================================================== */
+.blog-date {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* =====================================================
+   FOOTER refinamento
+   ===================================================== */
+.footer-contact li a {
+    color: rgba(255,255,255,0.7);
+    transition: var(--transition);
+}
+.footer-contact li a:hover {
+    color: white;
 }
 
