@@ -130,35 +130,47 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================================================
+    // EASING UTILITY + COUNT-UP
+    // =====================================================
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    function countUp(el, target, duration, prefix, suffix) {
+        var startTime = null;
+        function frame(now) {
+            if (!startTime) startTime = now;
+            var elapsed  = now - startTime;
+            var progress = Math.min(elapsed / duration, 1);
+            var eased    = easeOutCubic(progress);
+            var value    = Math.floor(eased * target);
+            el.textContent = (prefix || '') + value.toLocaleString('pt-BR') + (suffix || '');
+            if (progress < 1) {
+                requestAnimationFrame(frame);
+            } else {
+                el.textContent = (prefix || '') + target.toLocaleString('pt-BR') + (suffix || '');
+                el.classList.add('counted');
+            }
+        }
+        requestAnimationFrame(frame);
+    }
+
+    // =====================================================
     // FOUNDER STATS COUNTERS
     // =====================================================
-    const founderStats = document.querySelectorAll('.founder-stat-num');
-    let founderAnimated = false;
+    var founderStats    = document.querySelectorAll('.founder-stat-num');
+    var founderAnimated = false;
 
     function animateFounderStats() {
-        founderStats.forEach(el => {
-            const target = parseInt(el.getAttribute('data-count'));
-            const duration = 1800;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            function tick() {
-                current += step;
-                if (current < target) {
-                    el.textContent = Math.floor(current).toLocaleString('pt-BR');
-                    requestAnimationFrame(tick);
-                } else {
-                    el.textContent = target.toLocaleString('pt-BR');
-                }
-            }
-            tick();
+        founderStats.forEach(function(el) {
+            countUp(el, parseInt(el.getAttribute('data-count')), 1800, '', '');
         });
     }
 
-    const founderSection = document.querySelector('.founder');
+    var founderSection = document.querySelector('.founder');
     if (founderSection && founderStats.length > 0) {
-        const founderObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var founderObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting && !founderAnimated) {
                     animateFounderStats();
                     founderAnimated = true;
@@ -171,33 +183,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // =====================================================
     // SOCIAL IMPACT COUNTERS
     // =====================================================
-    const impactNumbers = document.querySelectorAll('.impact-number');
-    let impactAnimated = false;
+    var impactNumbers  = document.querySelectorAll('.impact-number');
+    var impactAnimated = false;
 
     function animateImpactNumbers() {
-        impactNumbers.forEach(el => {
-            const target = parseInt(el.getAttribute('data-count'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            function tick() {
-                current += step;
-                if (current < target) {
-                    el.textContent = '+' + Math.floor(current).toLocaleString('pt-BR');
-                    requestAnimationFrame(tick);
+        impactNumbers.forEach(function(el) {
+            var target = parseInt(el.getAttribute('data-count'));
+            var startTime = null;
+            function frame(now) {
+                if (!startTime) startTime = now;
+                var progress = Math.min((now - startTime) / 2000, 1);
+                var value    = Math.floor(easeOutCubic(progress) * target);
+                el.textContent = '+' + value.toLocaleString('pt-BR');
+                if (progress < 1) {
+                    requestAnimationFrame(frame);
                 } else {
                     el.textContent = '+' + target.toLocaleString('pt-BR');
+                    el.classList.add('counted');
                 }
             }
-            tick();
+            requestAnimationFrame(frame);
         });
     }
 
-    const impactSection = document.querySelector('.social-impact');
+    var impactSection = document.querySelector('.social-impact');
     if (impactSection && impactNumbers.length > 0) {
-        const impactObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var impactObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting && !impactAnimated) {
                     animateImpactNumbers();
                     impactAnimated = true;
@@ -253,37 +265,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================================================
-    // COUNTER ANIMATION (original stats)
-    const counters = document.querySelectorAll('.stat-number');
-    let hasAnimated = false;
+    // COUNTER ANIMATION (original stats) — com easing
+    var counters    = document.querySelectorAll('.stat-number');
+    var hasAnimated = false;
     
     function animateCounters() {
-        counters.forEach(counter => {
-            const target = parseInt(counter.getAttribute('data-count'));
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-            
-            function updateCounter() {
-                current += step;
-                if (current < target) {
-                    counter.textContent = Math.floor(current).toLocaleString('pt-BR') + '+';
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    counter.textContent = target.toLocaleString('pt-BR') + '+';
-                }
-            }
-            
-            updateCounter();
+        counters.forEach(function(el) {
+            countUp(el, parseInt(el.getAttribute('data-count')), 2000, '', '+');
         });
     }
     
     // Trigger counter animation when stats section is visible
-    const statsSection = document.querySelector('.stats');
+    var statsSection = document.querySelector('.stats');
     
     if (statsSection && counters.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
                 if (entry.isIntersecting && !hasAnimated) {
                     animateCounters();
                     hasAnimated = true;
@@ -443,7 +440,98 @@ document.addEventListener('DOMContentLoaded', function() {
         lazyImages.forEach(img => imageObserver.observe(img));
     }
 
-    // Hover em cards tratado exclusivamente via CSS (:hover) — bloco JS removido para evitar conflito.
+    // =====================================================
+    // CARD TILT 3D — efeito tátil premium (desktop only)
+    // =====================================================
+    function initCardTilt() {
+        if (window.innerWidth < 1024) return;
+
+        // Adiciona data-tilt dinamicamente para evitar poluir o HTML
+        document.querySelectorAll(
+            '.project-card, .blog-card, .impact-card, .team-card, .partner-card'
+        ).forEach(function(card) {
+            card.setAttribute('data-tilt', '');
+        });
+
+        document.querySelectorAll('[data-tilt]').forEach(function(card) {
+            card.addEventListener('mouseenter', function() {
+                this.style.transition = 'transform 0.12s ease';
+            });
+
+            card.addEventListener('mousemove', function(e) {
+                var rect = this.getBoundingClientRect();
+                var x    = e.clientX - rect.left;
+                var y    = e.clientY - rect.top;
+                var cx   = rect.width  / 2;
+                var cy   = rect.height / 2;
+                var rotY = ((x - cx) / cx) * 5.5;
+                var rotX = -((y - cy) / cy) * 5.5;
+                this.style.transform = 'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translateY(-6px)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                this.style.transform  = '';
+            });
+        });
+    }
+
+    // =====================================================
+    // HERO MOUSE PARALLAX — movimento leve (desktop only)
+    // =====================================================
+    function initHeroMouseParallax() {
+        var hero        = document.querySelector('.hero');
+        var heroContent = document.querySelector('.hero-content');
+        if (!hero || !heroContent || window.innerWidth < 1024) return;
+
+        var targetX = 0, targetY = 0;
+        var currentX = 0, currentY = 0;
+
+        hero.addEventListener('mousemove', function(e) {
+            var rect = hero.getBoundingClientRect();
+            targetX  = (e.clientX - rect.width  / 2) / rect.width  * 11;
+            targetY  = (e.clientY - rect.height / 2) / rect.height * 7;
+        });
+
+        hero.addEventListener('mouseleave', function() {
+            targetX = 0;
+            targetY = 0;
+        });
+
+        (function loop() {
+            currentX += (targetX - currentX) * 0.07;
+            currentY += (targetY - currentY) * 0.07;
+            heroContent.style.transform = 'translate(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px)';
+            requestAnimationFrame(loop);
+        })();
+    }
+
+    // =====================================================
+    // MAGNETIC BUTTONS — efeito sutil nos CTAs do hero
+    // =====================================================
+    function initMagneticButtons() {
+        if (window.innerWidth < 1024) return;
+
+        document.querySelectorAll('.hero-buttons .btn').forEach(function(btn) {
+            btn.addEventListener('mousemove', function(e) {
+                var rect = this.getBoundingClientRect();
+                var x    = e.clientX - rect.left - rect.width  / 2;
+                var y    = e.clientY - rect.top  - rect.height / 2;
+                this.style.transition = 'transform 0.12s ease';
+                this.style.transform  = 'translate(' + (x * 0.15).toFixed(1) + 'px, ' + (y * 0.15).toFixed(1) + 'px) scale(1.04) translateY(-3px)';
+            });
+
+            btn.addEventListener('mouseleave', function() {
+                this.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                this.style.transform  = '';
+            });
+        });
+    }
+
+    // Inicializa todos os efeitos premium
+    initCardTilt();
+    initHeroMouseParallax();
+    initMagneticButtons();
 
     // =====================================================
     // TYPING EFFECT (OPTIONAL - FOR HERO TITLE)

@@ -3032,3 +3032,377 @@ ul {
     color: white;
 }
 
+/* =====================================================
+   PREMIUM MOTION LAYER — Instituto Gaia Soul
+   Inspirado na elegância do site oficial
+   ===================================================== */
+
+/* --------------------------------------------------
+   1. HERO — ENTRADA ORQUESTRADA POR ELEMENTO
+   -------------------------------------------------- */
+@keyframes heroReveal {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes heroTitleReveal {
+    from { opacity: 0; transform: translateY(38px) skewY(-1.5deg); }
+    to   { opacity: 1; transform: translateY(0)    skewY(0);       }
+}
+
+@keyframes badgeFloat {
+    0%, 100% { transform: translateY(0px);  }
+    50%      { transform: translateY(-7px); }
+}
+
+.hero-animate > * {
+    opacity: 0;
+    animation: heroReveal 0.88s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Stagger por classe — mais preciso que nth-child */
+.hero-animate > .hero-badge       { animation-delay: 0.18s; }
+.hero-animate > .hero-title       { animation: heroTitleReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both; }
+.hero-animate > .hero-description { animation-delay: 0.62s; }
+.hero-animate > .hero-buttons     { animation-delay: 0.78s; }
+.hero-animate > .hero-trust-bar   { animation-delay: 0.94s; }
+
+/* Badge flutua depois do reveal */
+.hero-badge {
+    animation:
+        heroReveal  0.88s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both,
+        badgeFloat  4s   ease-in-out                    1.1s  infinite !important;
+    display: inline-block;
+}
+
+/* --------------------------------------------------
+   2. HERO SHAPE — ONDA PULSANTE SUAVE
+   -------------------------------------------------- */
+@keyframes waveFloat {
+    0%, 100% { transform: translateX(-5%) translateY(0);   }
+    50%      { transform: translateX(-5%) translateY(-5px); }
+}
+
+.hero-shape svg {
+    animation: waveFloat 6s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+/* --------------------------------------------------
+   3. NAV LINK — UNDERLINE EXPANDE DO CENTRO
+   -------------------------------------------------- */
+.nav-link::after {
+    left: 50% !important;
+    width: 100% !important;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: translateX(-50%) scaleX(1);
+    width: 100% !important;
+}
+
+/* --------------------------------------------------
+   4. BOTÕES — HOVER COM LIFT + GLOW
+   -------------------------------------------------- */
+.btn {
+    will-change: transform;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.025);
+    box-shadow: 0 14px 32px rgba(1, 17, 64, 0.22);
+}
+
+.btn:active {
+    transform: translateY(-1px) scale(1.01);
+}
+
+/* --------------------------------------------------
+   5. CARD TILT — SUPORTE CSS PARA O JS
+   -------------------------------------------------- */
+[data-tilt] {
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+/* --------------------------------------------------
+   6. PROJECT CARD — BARRA GRADIENTE NO HOVER
+   -------------------------------------------------- */
+.project-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent), var(--color-green));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 3;
+}
+
+.project-card:hover .project-image::after {
+    transform: scaleX(1);
+}
+
+/* Project image zoom já existe; suavizar easing */
+.project-image img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* --------------------------------------------------
+   7. BLOG CARD — HOVER PREMIUM + SETA ANIMADA
+   -------------------------------------------------- */
+.blog-card {
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow  0.45s ease !important;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 22px 55px rgba(1, 17, 64, 0.14) !important;
+}
+
+.blog-image img {
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.blog-card:hover .blog-image img {
+    transform: scale(1.07) !important;
+}
+
+.blog-link i {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-block;
+}
+
+.blog-link:hover i {
+    transform: translateX(7px);
+}
+
+/* --------------------------------------------------
+   8. PARTNER CARD — ZOOM + GLOW SUAVE
+   -------------------------------------------------- */
+.partner-card {
+    transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow  0.42s ease !important;
+}
+
+.partner-card:hover {
+    transform: translateY(-8px) scale(1.03) !important;
+    box-shadow: 0 18px 45px rgba(1, 17, 64, 0.13) !important;
+}
+
+/* --------------------------------------------------
+   9. VALUE CARD — ÍCONE LEVANTA NO HOVER
+   -------------------------------------------------- */
+.value-icon {
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                background  0.38s ease;
+}
+
+.value-card:hover .value-icon {
+    transform: scale(1.14) rotate(-6deg);
+    background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
+}
+
+/* --------------------------------------------------
+   10. CAUSE CARDS — ÍCONE HOVER JÁ EXISTE; ADD CARD LIFT
+   -------------------------------------------------- */
+.cause-card {
+    transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow  0.38s ease !important;
+}
+
+.cause-card:hover {
+    transform: translateY(-6px) !important;
+}
+
+/* --------------------------------------------------
+   11. TEAM CARD — HOVER LIFT
+   -------------------------------------------------- */
+.team-card {
+    transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow  0.42s ease !important;
+}
+
+.team-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 50px rgba(1, 17, 64, 0.15) !important;
+}
+
+/* --------------------------------------------------
+   12. IMPACT CARD — NÚMERO BRILHA APÓS CONTAR
+   -------------------------------------------------- */
+.impact-number {
+    transition: text-shadow 0.5s ease;
+}
+
+.impact-number.counted {
+    text-shadow: 0 0 28px rgba(5, 91, 166, 0.45);
+}
+
+.stat-number {
+    transition: text-shadow 0.5s ease;
+}
+
+.stat-number.counted {
+    text-shadow: 0 0 22px rgba(255, 255, 255, 0.55);
+}
+
+.founder-stat-num {
+    transition: text-shadow 0.5s ease;
+}
+
+.founder-stat-num.counted {
+    text-shadow: 0 0 22px rgba(5, 91, 166, 0.4);
+}
+
+/* --------------------------------------------------
+   13. ABOUT IMAGE — HOVER LEVE
+   -------------------------------------------------- */
+.ocean-gallery-image {
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow  0.55s ease !important;
+    cursor: default;
+}
+
+.ocean-gallery-image:hover {
+    transform: scale(1.022) rotate(-0.4deg) !important;
+    box-shadow: 0 32px 72px rgba(1, 17, 64, 0.2) !important;
+}
+
+/* --------------------------------------------------
+   14. SECTION TAG — DECORAÇÃO LATERAL
+   -------------------------------------------------- */
+.section-tag {
+    position: relative;
+    padding-left: 16px;
+}
+
+.section-tag::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.7;
+}
+
+/* --------------------------------------------------
+   15. SOCIAL ICONS HEADER — SPIN NO HOVER
+   -------------------------------------------------- */
+.social-icon {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                background  0.35s ease,
+                color        0.35s ease !important;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px) scale(1.15) rotate(8deg) !important;
+}
+
+/* --------------------------------------------------
+   16. ODS CARD — HOVER LIFT
+   -------------------------------------------------- */
+.ods-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow  0.4s ease !important;
+}
+
+.ods-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 16px 40px rgba(1, 17, 64, 0.12) !important;
+}
+
+/* --------------------------------------------------
+   17. CAMPAIGN CARD — HOVER PREMIUM
+   -------------------------------------------------- */
+.campaign-card {
+    transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow  0.42s ease !important;
+}
+
+.campaign-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 50px rgba(1, 17, 64, 0.14) !important;
+}
+
+/* --------------------------------------------------
+   18. COMMUNITY CARD — ÍCONE PULSA NO HOVER
+   -------------------------------------------------- */
+@keyframes iconPulse {
+    0%   { transform: scale(1);    }
+    40%  { transform: scale(1.18); }
+    100% { transform: scale(1);    }
+}
+
+.community-card:hover .community-icon i {
+    animation: iconPulse 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --------------------------------------------------
+   19. PROGRESS BAR — GRADIENTE ANIMADO
+   -------------------------------------------------- */
+.progress-fill {
+    background: linear-gradient(90deg,
+        var(--color-green) 0%,
+        #6dd49a 50%,
+        var(--color-green) 100%) !important;
+    background-size: 200% 100% !important;
+    animation: progressShimmer 2.5s ease infinite;
+}
+
+@keyframes progressShimmer {
+    0%   { background-position: 200% center; }
+    100% { background-position: -200% center; }
+}
+
+/* --------------------------------------------------
+   20. FOUNDER STATS — BORDA SUPERIOR ANIMADA
+   -------------------------------------------------- */
+@keyframes borderGrow {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+
+.founder-stat {
+    position: relative;
+    overflow: hidden;
+}
+
+.founder-stat::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founder-stat:hover::after {
+    width: 100%;
+}
+
+/* --------------------------------------------------
+   MOBILE — desabilitar efeitos custosos
+   -------------------------------------------------- */
+@media (max-width: 768px) {
+    .ocean-gallery-image:hover { transform: none !important; }
+    .hero-shape svg             { animation: none; }
+    .hero-badge                 { animation: heroReveal 0.88s cubic-bezier(0.16, 1, 0.3, 1) 0.18s both !important; }
+}
+
