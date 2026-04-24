@@ -5,11 +5,29 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS (Animate on Scroll)
     AOS.init({
-        duration: 800,
-        easing: 'ease-in-out',
+        duration: 950,
+        easing: 'ease-out-cubic',
         once: true,
-        offset: 100
+        offset: 75,
+        delay: 0,
+        anchorPlacement: 'top-bottom'
     });
+
+    // =====================================================
+    // SCROLL PROGRESS BAR
+    // =====================================================
+    const scrollProgressBar = document.getElementById('scroll-progress');
+
+    function updateScrollProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (scrollProgressBar) {
+            scrollProgressBar.style.width = progress + '%';
+        }
+    }
+
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
     // =====================================================
     // HEADER SCROLL EFFECT
@@ -127,10 +145,10 @@ document.addEventListener('DOMContentLoaded', function() {
             function updateCounter() {
                 current += step;
                 if (current < target) {
-                    counter.textContent = Math.floor(current).toLocaleString('pt-BR');
+                    counter.textContent = Math.floor(current).toLocaleString('pt-BR') + '+';
                     requestAnimationFrame(updateCounter);
                 } else {
-                    counter.textContent = target.toLocaleString('pt-BR');
+                    counter.textContent = target.toLocaleString('pt-BR') + '+';
                 }
             }
             
@@ -267,20 +285,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // =====================================================
-    // PARALLAX EFFECT (SUBTLE)
+    // PARALLAX EFFECT (HERO)
     // =====================================================
-    // Parallax apenas no hero (divs .stats-background e .progress-background foram removidas do HTML)
-    const parallaxElements = document.querySelectorAll('.hero-background');
-    
-    if (parallaxElements.length > 0) {
+    const heroBackground = document.querySelector('.hero-background');
+
+    if (heroBackground) {
+        // Remove a classe de fallback agora que o parallax JS está ativo
+        heroBackground.classList.remove('no-parallax');
+
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
-            
-            parallaxElements.forEach(element => {
-                const speed = 0.5;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
-            });
-        });
+            const speed = 0.4;
+            // scale(1.06) garante que não apareçam bordas brancas durante o parallax
+            heroBackground.style.transform = `translateY(${scrolled * speed}px) scale(1.06)`;
+        }, { passive: true });
     }
 
     // =====================================================

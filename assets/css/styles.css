@@ -2128,3 +2128,244 @@ ul {
         grid-template-columns: 1fr;
     }
 }
+
+/* =====================================================
+   PREMIUM ENHANCEMENTS — Visual Upgrade
+   ===================================================== */
+
+/* ---- Scroll Progress Bar ---- */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-light-blue), var(--color-accent), var(--color-secondary));
+    z-index: 10000;
+    transition: width 0.08s linear;
+    pointer-events: none;
+}
+
+/* ---- Hero: overlay cinemático ---- */
+.hero-overlay {
+    background: linear-gradient(
+        112deg,
+        rgba(1, 17, 64, 0.94) 0%,
+        rgba(1, 17, 64, 0.80) 42%,
+        rgba(5, 91, 166, 0.22) 100%
+    );
+    opacity: 1;
+}
+
+/* ---- Hero: grid de pontos sutil sobre o overlay ---- */
+.hero-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 44px 44px;
+    pointer-events: none;
+}
+
+/* ---- Hero: efeito Ken Burns na imagem de fundo ---- */
+@keyframes kenBurns {
+    0%   { transform: scale(1.0) translateY(0px); }
+    50%  { transform: scale(1.06) translateY(-6px); }
+    100% { transform: scale(1.0) translateY(0px); }
+}
+
+/* Ken Burns apenas enquanto JS não aplicar parallax */
+.hero-background.no-parallax {
+    animation: kenBurns 22s ease-in-out infinite;
+    will-change: transform;
+}
+
+/* ---- Section Tag: linhas decorativas laterais ---- */
+.section-tag::before,
+.section-tag::after {
+    content: '';
+    display: inline-block;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    vertical-align: middle;
+    opacity: 0.55;
+}
+.section-tag::before { margin-right: 9px; }
+.section-tag::after  { margin-left:  9px; }
+
+/* ---- Botões: efeito shimmer no hover ---- */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -80%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        rgba(255, 255, 255, 0.28) 50%,
+        transparent 100%
+    );
+    transform: skewX(-15deg);
+    pointer-events: none;
+}
+.btn:hover::before {
+    animation: btnShimmer 0.7s ease-out forwards;
+}
+@keyframes btnShimmer {
+    to { left: 130%; }
+}
+
+/* ---- Stats: glassmorphism ---- */
+.stat-card {
+    background: rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+.stat-card:hover {
+    background: rgba(255, 255, 255, 0.20);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.35);
+}
+.stat-number {
+    color: #ffffff;
+}
+.stat-label {
+    color: rgba(255, 255, 255, 0.88);
+}
+
+/* ---- MVV Cards: borda topo colorida ---- */
+.mvv-card {
+    border-top: 3px solid var(--color-accent);
+}
+.mvv-card:hover {
+    border-top-color: var(--color-secondary);
+}
+
+/* ---- Project cards: hover mais rico ---- */
+.project-card:hover {
+    box-shadow: 0 22px 55px rgba(1, 17, 64, 0.16);
+    transform: translateY(-9px);
+}
+
+/* ---- Blog cards: zoom de entrada na imagem ---- */
+.blog-image img {
+    transform: scale(1.03);
+}
+.blog-card:hover .blog-image img {
+    transform: scale(1.12);
+}
+
+/* ---- Value icon: animação no hover ---- */
+.value-icon {
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+.value-card:hover .value-icon {
+    background-color: var(--color-secondary);
+    transform: rotate(-6deg) scale(1.12);
+}
+
+/* ---- CTA Sections: overlays mais dramáticos ---- */
+.cta-green .cta-overlay {
+    background: linear-gradient(170deg, rgba(0, 55, 18, 0.60) 0%, rgba(5, 100, 20, 0.45) 100%);
+    opacity: 1;
+}
+.cta-blue .cta-overlay {
+    background: linear-gradient(135deg, rgba(7, 41, 108, 0.55) 0%, rgba(5, 91, 166, 0.35) 100%);
+    opacity: 1;
+}
+/* CTA content: glassmorphism leve */
+.cta-content {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.22);
+    border-radius: var(--radius-lg);
+}
+
+/* ---- Newsletter: gradiente profundo ---- */
+.newsletter {
+    background: linear-gradient(140deg, var(--color-primary) 0%, var(--color-navy) 60%, var(--color-dark-blue) 100%);
+}
+
+/* ---- Donate: gradiente premium ---- */
+.donate {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-accent) 100%);
+}
+
+/* ---- Footer: borda topo gradiente ---- */
+.footer {
+    border-top: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+}
+.footer::before {
+    content: '';
+    display: block;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent), var(--color-light-blue));
+    margin-bottom: -3px;
+}
+
+/* ---- Community cards: hover mais suave ---- */
+.community-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.28);
+}
+
+/* ---- Partner cards: transição mais elegante ---- */
+.partner-card {
+    transition: all 0.4s ease;
+}
+
+/* ---- Causes section: profundidade extra ---- */
+.causes {
+    overflow: hidden;
+}
+.cause-card {
+    transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+}
+.cause-card:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-7px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ---- ODS cards: cor de destaque no hover ---- */
+.ods-card:hover {
+    box-shadow: 0 15px 40px rgba(1, 17, 64, 0.12);
+    transform: translateY(-7px);
+}
+.ods-card:hover .ods-icon {
+    transform: scale(1.08);
+    transition: transform 0.35s ease;
+}
+
+/* ---- Scrollbar personalizada ---- */
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-light-gray);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);
+}
+
+/* ---- Seleção de texto ---- */
+::selection {
+    background: var(--color-secondary);
+    color: #ffffff;
+}
+
