@@ -1002,6 +1002,10 @@ ul {
     margin-bottom: 60px;
 }
 
+.campaigns-header .section-description {
+    margin: 0 auto;
+}
+
 .campaigns-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
