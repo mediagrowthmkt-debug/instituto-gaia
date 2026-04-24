@@ -1763,6 +1763,10 @@ ul {
     z-index: 1;
 }
 
+.causes-header .section-description {
+    margin: 0 auto;
+}
+
 .causes-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
