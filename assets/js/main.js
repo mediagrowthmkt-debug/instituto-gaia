@@ -130,8 +130,130 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================================================
-    // COUNTER ANIMATION
+    // FOUNDER STATS COUNTERS
     // =====================================================
+    const founderStats = document.querySelectorAll('.founder-stat-num');
+    let founderAnimated = false;
+
+    function animateFounderStats() {
+        founderStats.forEach(el => {
+            const target = parseInt(el.getAttribute('data-count'));
+            const duration = 1800;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            function tick() {
+                current += step;
+                if (current < target) {
+                    el.textContent = Math.floor(current).toLocaleString('pt-BR');
+                    requestAnimationFrame(tick);
+                } else {
+                    el.textContent = target.toLocaleString('pt-BR');
+                }
+            }
+            tick();
+        });
+    }
+
+    const founderSection = document.querySelector('.founder');
+    if (founderSection && founderStats.length > 0) {
+        const founderObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !founderAnimated) {
+                    animateFounderStats();
+                    founderAnimated = true;
+                }
+            });
+        }, { threshold: 0.3 });
+        founderObserver.observe(founderSection);
+    }
+
+    // =====================================================
+    // SOCIAL IMPACT COUNTERS
+    // =====================================================
+    const impactNumbers = document.querySelectorAll('.impact-number');
+    let impactAnimated = false;
+
+    function animateImpactNumbers() {
+        impactNumbers.forEach(el => {
+            const target = parseInt(el.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            function tick() {
+                current += step;
+                if (current < target) {
+                    el.textContent = '+' + Math.floor(current).toLocaleString('pt-BR');
+                    requestAnimationFrame(tick);
+                } else {
+                    el.textContent = '+' + target.toLocaleString('pt-BR');
+                }
+            }
+            tick();
+        });
+    }
+
+    const impactSection = document.querySelector('.social-impact');
+    if (impactSection && impactNumbers.length > 0) {
+        const impactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !impactAnimated) {
+                    animateImpactNumbers();
+                    impactAnimated = true;
+                }
+            });
+        }, { threshold: 0.2 });
+        impactObserver.observe(impactSection);
+    }
+
+    // =====================================================
+    // CONTACT FORM — Full form with feedback
+    // =====================================================
+    const contactForm = document.getElementById('contact-form');
+    const contactFeedback = document.getElementById('contact-feedback');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const btn = contactForm.querySelector('.contact-submit-btn');
+            const originalHTML = btn.innerHTML;
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp; Enviando...';
+            btn.disabled = true;
+
+            // Monta link mailto como fallback enquanto não há backend
+            const nome    = contactForm.querySelector('[name="nome"]').value;
+            const email   = contactForm.querySelector('[name="email"]').value;
+            const tel     = contactForm.querySelector('[name="telefone"]').value;
+            const msg     = contactForm.querySelector('[name="mensagem"]').value;
+
+            const mailBody = encodeURIComponent(
+                `Nome: ${nome}\nTelefone: ${tel}\n\n${msg}`
+            );
+            const mailLink = `mailto:institutogaiasoul@gmail.com?subject=Contato - ${encodeURIComponent(nome)}&body=${mailBody}`;
+
+            setTimeout(() => {
+                window.location.href = mailLink;
+
+                contactFeedback.textContent = 'Mensagem preparada! Seu cliente de e-mail será aberto.';
+                contactFeedback.className = 'contact-form-feedback success';
+                btn.innerHTML = '<i class="fas fa-check"></i>&nbsp; Mensagem preparada!';
+
+                setTimeout(() => {
+                    contactForm.reset();
+                    btn.innerHTML = originalHTML;
+                    btn.disabled = false;
+                    contactFeedback.textContent = '';
+                    contactFeedback.className = 'contact-form-feedback';
+                }, 4000);
+            }, 1000);
+        });
+    }
+
+    // =====================================================
+    // COUNTER ANIMATION (original stats)
     const counters = document.querySelectorAll('.stat-number');
     let hasAnimated = false;
     
