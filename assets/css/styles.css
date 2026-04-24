@@ -2028,6 +2028,10 @@ ul {
     margin-bottom: 50px;
 }
 
+.blog-header .section-description {
+    margin: 0 auto;
+}
+
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
