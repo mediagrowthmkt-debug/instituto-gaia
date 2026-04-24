@@ -2362,6 +2362,10 @@ ul {
     z-index: 1;
 }
 
+.social-impact-header .section-description {
+    margin: 0 auto;
+}
+
 .impact-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
