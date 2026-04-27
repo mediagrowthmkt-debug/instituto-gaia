@@ -14,6 +14,25 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // =====================================================
+    // COOKIE / LGPD NOTICE
+    // =====================================================
+    const cookieNotice = document.getElementById('cookie-notice');
+    const cookieAccept = document.getElementById('cookie-accept');
+
+    if (cookieNotice && cookieAccept) {
+        if (!localStorage.getItem('gaia_cookie_accepted')) {
+            setTimeout(() => cookieNotice.classList.remove('hidden'), 800);
+        } else {
+            cookieNotice.style.display = 'none';
+        }
+        cookieAccept.addEventListener('click', function () {
+            localStorage.setItem('gaia_cookie_accepted', '1');
+            cookieNotice.classList.add('hidden');
+            setTimeout(() => cookieNotice.style.display = 'none', 600);
+        });
+    }
+
+    // =====================================================
     // SCROLL PROGRESS BAR
     // =====================================================
     const scrollProgressBar = document.getElementById('scroll-progress');
