@@ -958,35 +958,72 @@ ul {
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 30px;
 }
 
 .partner-card {
     background-color: var(--color-white);
-    padding: 30px;
+    padding: 32px 24px 28px;
     border-radius: var(--radius-md);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    gap: 14px;
+    min-height: 160px;
     transition: var(--transition);
+    border: 1px solid #eef0f5;
 }
 
 .partner-card:hover {
     box-shadow: var(--shadow-md);
     transform: translateY(-5px);
+    border-color: var(--color-light-blue);
+}
+
+.partner-card.featured {
+    border: 2px solid var(--color-secondary);
+    position: relative;
+}
+
+.partner-featured-badge {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-secondary);
+    color: white;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
 }
 
 .partner-card img {
-    max-height: 80px;
+    max-height: 50px;
+    max-width: 100px;
     filter: grayscale(100%);
     opacity: 0.7;
     transition: var(--transition);
+    object-fit: contain;
 }
 
 .partner-card:hover img {
     filter: grayscale(0%);
     opacity: 1;
+}
+
+.partner-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-align: center;
+    line-height: 1.4;
 }
 
 /* =====================================================
@@ -1438,7 +1475,7 @@ ul {
     }
     
     .partners-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
     
     .footer-grid {
@@ -3722,16 +3759,16 @@ ul {
    PARCEIROS — Cards com Ícone
    ===================================================== */
 .partner-icon-wrap {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--color-secondary), var(--color-accent));
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
+    font-size: 20px;
     color: white;
-    margin: 0 auto 12px;
+    flex-shrink: 0;
 }
 
 .partner-icon-wrap.plus {
@@ -3739,24 +3776,34 @@ ul {
 }
 
 .partner-cta {
-    border: 2px dashed rgba(255, 255, 255, 0.3) !important;
-    background: rgba(255, 255, 255, 0.06) !important;
+    border: 2px dashed var(--color-light-blue) !important;
+    background: var(--color-light-gray) !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.partner-cta:hover {
+    border-color: var(--color-secondary) !important;
+    background: var(--color-white) !important;
+}
+
+.partner-cta .partner-name {
+    color: var(--color-secondary);
 }
 
 .partner-cta-link {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-    color: var(--color-light-blue);
+    color: var(--color-accent);
     text-decoration: underline;
     transition: color 0.3s ease;
 }
 
 .partner-cta-link:hover {
-    color: white;
+    color: var(--color-primary);
 }
 
 /* =====================================================
