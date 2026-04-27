@@ -313,7 +313,7 @@ ul {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../images/plano-de-fundo-baleia-desktop.jpg') center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1920&q=85') center/cover no-repeat;
 }
 
 .hero-overlay {
@@ -459,7 +459,7 @@ ul {
 .mission {
     position: relative;
     padding: 150px 0;
-    background: url('../images/plano-de-fundo-baleia-desktop.jpg') bottom center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1920&q=85') bottom center/cover no-repeat;
 }
 
 .mission-overlay {
@@ -484,7 +484,7 @@ ul {
 .stats {
     position: relative;
     padding: var(--section-padding);
-    background: url('../images/plano-de-fundo-baleia-desktop.jpg') bottom center/cover no-repeat fixed;
+    background: url('https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=1920&q=85') bottom center/cover no-repeat fixed;
 }
 
 .stats-overlay {
@@ -747,7 +747,7 @@ ul {
 .progress-section {
     position: relative;
     padding: 80px 0 150px;
-    background: url('../images/plano-de-fundo-baleia-desktop.jpg') bottom center/cover no-repeat;
+    background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85') bottom center/cover no-repeat;
 }
 
 .progress-overlay {
@@ -894,7 +894,7 @@ ul {
 }
 
 .cta-blue {
-    background: url('../images/plano-de-fundo-baleia-desktop.jpg') center/cover no-repeat fixed;
+    background: url('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1920&q=85') center/cover no-repeat fixed;
 }
 
 .cta-blue .cta-overlay {
