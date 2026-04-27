@@ -1007,8 +1007,6 @@ ul {
 .partner-card img {
     max-height: 50px;
     max-width: 100px;
-    filter: grayscale(100%);
-    opacity: 0.7;
     transition: var(--transition);
     object-fit: contain;
 }
@@ -1941,21 +1939,6 @@ ul {
 .partner-card.featured {
     border: 2px solid var(--color-secondary);
     position: relative;
-}
-
-.partner-card.featured::before {
-    content: 'Parceiro Principal';
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-secondary);
-    color: white;
-    padding: 3px 12px;
-    border-radius: var(--radius-full);
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
 }
 
 .partner-name {
