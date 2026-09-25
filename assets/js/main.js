@@ -5,48 +5,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS (Animate on Scroll)
     AOS.init({
-        duration: 950,
-        easing: 'ease-out-cubic',
+        duration: 800,
+        easing: 'ease-in-out',
         once: true,
-        offset: 75,
-        delay: 0,
-        anchorPlacement: 'top-bottom'
+        offset: 100
     });
-
-    // =====================================================
-    // COOKIE / LGPD NOTICE
-    // =====================================================
-    const cookieNotice = document.getElementById('cookie-notice');
-    const cookieAccept = document.getElementById('cookie-accept');
-
-    if (cookieNotice && cookieAccept) {
-        if (!localStorage.getItem('gaia_cookie_accepted')) {
-            setTimeout(() => cookieNotice.classList.remove('hidden'), 800);
-        } else {
-            cookieNotice.style.display = 'none';
-        }
-        cookieAccept.addEventListener('click', function () {
-            localStorage.setItem('gaia_cookie_accepted', '1');
-            cookieNotice.classList.add('hidden');
-            setTimeout(() => cookieNotice.style.display = 'none', 600);
-        });
-    }
-
-    // =====================================================
-    // SCROLL PROGRESS BAR
-    // =====================================================
-    const scrollProgressBar = document.getElementById('scroll-progress');
-
-    function updateScrollProgress() {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-        if (scrollProgressBar) {
-            scrollProgressBar.style.width = progress + '%';
-        }
-    }
-
-    window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
     // =====================================================
     // HEADER SCROLL EFFECT
@@ -149,157 +112,38 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================================================
-    // EASING UTILITY + COUNT-UP
+    // COUNTER ANIMATION
     // =====================================================
-    function easeOutCubic(t) {
-        return 1 - Math.pow(1 - t, 3);
-    }
-
-    function countUp(el, target, duration, prefix, suffix) {
-        var startTime = null;
-        function frame(now) {
-            if (!startTime) startTime = now;
-            var elapsed  = now - startTime;
-            var progress = Math.min(elapsed / duration, 1);
-            var eased    = easeOutCubic(progress);
-            var value    = Math.floor(eased * target);
-            el.textContent = (prefix || '') + value.toLocaleString('pt-BR') + (suffix || '');
-            if (progress < 1) {
-                requestAnimationFrame(frame);
-            } else {
-                el.textContent = (prefix || '') + target.toLocaleString('pt-BR') + (suffix || '');
-                el.classList.add('counted');
-            }
-        }
-        requestAnimationFrame(frame);
-    }
-
-    // =====================================================
-    // FOUNDER STATS COUNTERS
-    // =====================================================
-    var founderStats    = document.querySelectorAll('.founder-stat-num');
-    var founderAnimated = false;
-
-    function animateFounderStats() {
-        founderStats.forEach(function(el) {
-            countUp(el, parseInt(el.getAttribute('data-count')), 1800, '', '');
-        });
-    }
-
-    var founderSection = document.querySelector('.founder');
-    if (founderSection && founderStats.length > 0) {
-        var founderObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting && !founderAnimated) {
-                    animateFounderStats();
-                    founderAnimated = true;
-                }
-            });
-        }, { threshold: 0.3 });
-        founderObserver.observe(founderSection);
-    }
-
-    // =====================================================
-    // SOCIAL IMPACT COUNTERS
-    // =====================================================
-    var impactNumbers  = document.querySelectorAll('.impact-number');
-    var impactAnimated = false;
-
-    function animateImpactNumbers() {
-        impactNumbers.forEach(function(el) {
-            var target = parseInt(el.getAttribute('data-count'));
-            var startTime = null;
-            function frame(now) {
-                if (!startTime) startTime = now;
-                var progress = Math.min((now - startTime) / 2000, 1);
-                var value    = Math.floor(easeOutCubic(progress) * target);
-                el.textContent = '+' + value.toLocaleString('pt-BR');
-                if (progress < 1) {
-                    requestAnimationFrame(frame);
-                } else {
-                    el.textContent = '+' + target.toLocaleString('pt-BR');
-                    el.classList.add('counted');
-                }
-            }
-            requestAnimationFrame(frame);
-        });
-    }
-
-    var impactSection = document.querySelector('.social-impact');
-    if (impactSection && impactNumbers.length > 0) {
-        var impactObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting && !impactAnimated) {
-                    animateImpactNumbers();
-                    impactAnimated = true;
-                }
-            });
-        }, { threshold: 0.2 });
-        impactObserver.observe(impactSection);
-    }
-
-    // =====================================================
-    // CONTACT FORM — Full form with feedback
-    // =====================================================
-    const contactForm = document.getElementById('contact-form');
-    const contactFeedback = document.getElementById('contact-feedback');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const btn = contactForm.querySelector('.contact-submit-btn');
-            const originalHTML = btn.innerHTML;
-
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>&nbsp; Enviando...';
-            btn.disabled = true;
-
-            // Monta link mailto como fallback enquanto não há backend
-            const nome    = contactForm.querySelector('[name="nome"]').value;
-            const email   = contactForm.querySelector('[name="email"]').value;
-            const tel     = contactForm.querySelector('[name="telefone"]').value;
-            const msg     = contactForm.querySelector('[name="mensagem"]').value;
-
-            const mailBody = encodeURIComponent(
-                `Nome: ${nome}\nTelefone: ${tel}\n\n${msg}`
-            );
-            const mailLink = `mailto:institutogaiasoul@gmail.com?subject=Contato - ${encodeURIComponent(nome)}&body=${mailBody}`;
-
-            setTimeout(() => {
-                window.location.href = mailLink;
-
-                contactFeedback.textContent = 'Mensagem preparada! Seu cliente de e-mail será aberto.';
-                contactFeedback.className = 'contact-form-feedback success';
-                btn.innerHTML = '<i class="fas fa-check"></i>&nbsp; Mensagem preparada!';
-
-                setTimeout(() => {
-                    contactForm.reset();
-                    btn.innerHTML = originalHTML;
-                    btn.disabled = false;
-                    contactFeedback.textContent = '';
-                    contactFeedback.className = 'contact-form-feedback';
-                }, 4000);
-            }, 1000);
-        });
-    }
-
-    // =====================================================
-    // COUNTER ANIMATION (original stats) — com easing
-    var counters    = document.querySelectorAll('.stat-number');
-    var hasAnimated = false;
+    const counters = document.querySelectorAll('.stat-number');
+    let hasAnimated = false;
     
     function animateCounters() {
-        counters.forEach(function(el) {
-            countUp(el, parseInt(el.getAttribute('data-count')), 2000, '', '+');
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+            
+            function updateCounter() {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.floor(current).toLocaleString('pt-BR');
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target.toLocaleString('pt-BR');
+                }
+            }
+            
+            updateCounter();
         });
     }
     
     // Trigger counter animation when stats section is visible
-    var statsSection = document.querySelector('.stats');
+    const statsSection = document.querySelector('.stats');
     
     if (statsSection && counters.length > 0) {
-        var observer = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
                 if (entry.isIntersecting && !hasAnimated) {
                     animateCounters();
                     hasAnimated = true;
@@ -423,20 +267,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // =====================================================
-    // PARALLAX EFFECT (HERO)
+    // PARALLAX EFFECT (SUBTLE)
     // =====================================================
-    const heroBackground = document.querySelector('.hero-background');
-
-    if (heroBackground) {
-        // Remove a classe de fallback agora que o parallax JS está ativo
-        heroBackground.classList.remove('no-parallax');
-
+    const parallaxElements = document.querySelectorAll('.hero-background, .stats-background, .progress-background');
+    
+    if (parallaxElements.length > 0) {
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
-            const speed = 0.4;
-            // scale(1.06) garante que não apareçam bordas brancas durante o parallax
-            heroBackground.style.transform = `translateY(${scrolled * speed}px) scale(1.06)`;
-        }, { passive: true });
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
     }
 
     // =====================================================
@@ -460,97 +303,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // =====================================================
-    // CARD TILT 3D — efeito tátil premium (desktop only)
+    // HOVER EFFECTS FOR CARDS
     // =====================================================
-    function initCardTilt() {
-        if (window.innerWidth < 1024) return;
-
-        // Adiciona data-tilt dinamicamente para evitar poluir o HTML
-        document.querySelectorAll(
-            '.project-card, .blog-card, .impact-card, .team-card, .partner-card'
-        ).forEach(function(card) {
-            card.setAttribute('data-tilt', '');
+    const cards = document.querySelectorAll('.project-card, .team-card, .campaign-card, .value-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
         });
-
-        document.querySelectorAll('[data-tilt]').forEach(function(card) {
-            card.addEventListener('mouseenter', function() {
-                this.style.transition = 'transform 0.12s ease';
-            });
-
-            card.addEventListener('mousemove', function(e) {
-                var rect = this.getBoundingClientRect();
-                var x    = e.clientX - rect.left;
-                var y    = e.clientY - rect.top;
-                var cx   = rect.width  / 2;
-                var cy   = rect.height / 2;
-                var rotY = ((x - cx) / cx) * 5.5;
-                var rotX = -((y - cy) / cy) * 5.5;
-                this.style.transform = 'perspective(900px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) translateY(-6px)';
-            });
-
-            card.addEventListener('mouseleave', function() {
-                this.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-                this.style.transform  = '';
-            });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
         });
-    }
-
-    // =====================================================
-    // HERO MOUSE PARALLAX — movimento leve (desktop only)
-    // =====================================================
-    function initHeroMouseParallax() {
-        var hero        = document.querySelector('.hero');
-        var heroContent = document.querySelector('.hero-content');
-        if (!hero || !heroContent || window.innerWidth < 1024) return;
-
-        var targetX = 0, targetY = 0;
-        var currentX = 0, currentY = 0;
-
-        hero.addEventListener('mousemove', function(e) {
-            var rect = hero.getBoundingClientRect();
-            targetX  = (e.clientX - rect.width  / 2) / rect.width  * 11;
-            targetY  = (e.clientY - rect.height / 2) / rect.height * 7;
-        });
-
-        hero.addEventListener('mouseleave', function() {
-            targetX = 0;
-            targetY = 0;
-        });
-
-        (function loop() {
-            currentX += (targetX - currentX) * 0.07;
-            currentY += (targetY - currentY) * 0.07;
-            heroContent.style.transform = 'translate(' + currentX.toFixed(2) + 'px, ' + currentY.toFixed(2) + 'px)';
-            requestAnimationFrame(loop);
-        })();
-    }
-
-    // =====================================================
-    // MAGNETIC BUTTONS — efeito sutil nos CTAs do hero
-    // =====================================================
-    function initMagneticButtons() {
-        if (window.innerWidth < 1024) return;
-
-        document.querySelectorAll('.hero-buttons .btn').forEach(function(btn) {
-            btn.addEventListener('mousemove', function(e) {
-                var rect = this.getBoundingClientRect();
-                var x    = e.clientX - rect.left - rect.width  / 2;
-                var y    = e.clientY - rect.top  - rect.height / 2;
-                this.style.transition = 'transform 0.12s ease';
-                this.style.transform  = 'translate(' + (x * 0.15).toFixed(1) + 'px, ' + (y * 0.15).toFixed(1) + 'px) scale(1.04) translateY(-3px)';
-            });
-
-            btn.addEventListener('mouseleave', function() {
-                this.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
-                this.style.transform  = '';
-            });
-        });
-    }
-
-    // Inicializa todos os efeitos premium
-    initCardTilt();
-    initHeroMouseParallax();
-    initMagneticButtons();
+    });
 
     // =====================================================
     // TYPING EFFECT (OPTIONAL - FOR HERO TITLE)
