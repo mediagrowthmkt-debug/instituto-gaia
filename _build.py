@@ -192,13 +192,14 @@ def head(title, desc, page, og="hf-01-hero-baia"):
     <link rel="icon" type="image/png" href="{LOGO}/gaia-soul-oficial.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Urbanist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Bebas+Neue&family=Caveat:wght@600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Radley&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/pages.css">
     <link rel="stylesheet" href="assets/css/v2.css">
     <link rel="stylesheet" href="assets/css/v3.css">
+    <link rel="stylesheet" href="assets/css/identidade.css">
     {'<link rel="preload" as="image" href="' + IMG + '/hero-poster.webp">' if page == "index.html" else ''}
 </head>
 <body>
