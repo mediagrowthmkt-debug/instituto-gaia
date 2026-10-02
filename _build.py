@@ -40,7 +40,7 @@ IMG = "assets/images/v2"      # acervo do v3
 IMG4 = "assets/images/v4"     # acervo novo (site antigo, LPs, mapas)
 LOGO = "assets/images/logos"
 VID = "assets/video/v4"
-V = "20260930k"               # versão dos assets (cache)
+V = "20261002b"               # versão dos assets (cache)
 
 WA_NUM = "557199972427"
 WA = f"https://wa.me/{WA_NUM}"
@@ -61,6 +61,7 @@ LOJA_URL = None             # onde comprar a camiseta
 GOOGLE_INSTITUTO = "https://share.google/oN9QCGZIFGdvhcymP"   # perfil do Instituto no Google
 IMERSAO_AZUL_URL = "https://imersaoazul.com.br"
 MATA_URL = "https://mataquantica.com.br"
+OCEANO_EBOOK_URL = "https://mediagrowthmkt-debug.github.io/oceanoterapiapages/?utm_source=site&utm_medium=pagina-oceanoterapia&utm_campaign=ebook"
 
 SOCIAL = [
     ("https://www.linkedin.com/company/instituto-gaia-soul/", "fab fa-linkedin-in", "LinkedIn", "in"),
@@ -97,7 +98,7 @@ PROJETOS = [
          resumo="A Cultura Oceânica dentro da sala de aula, com livros, realidade virtual e muita curiosidade.",
          painel="E se o fundo do mar coubesse dentro da sala de aula? O Imersão Azul leva a Cultura Oceânica para as escolas com 11 livros autorais, realidade virtual, plataforma digital e uma jornada gamificada que transforma ciência em encantamento.",
          ext=(IMERSAO_AZUL_URL, "Visite o site do Imersão Azul")),
-    dict(slug="mundo-submarino-360", nome="Mundo Submarino 360°", tags="Tecnologia • Experiência imersiva", card=f"{IMG}/hf-09-360-aeroporto.webp",
+    dict(slug="mundo-submarino-360", nome="Mundo Submarino 360°", tags="Tecnologia • Experiência imersiva", card=f"{IMG4}/sub-recife.webp",
          bg=f"{IMG}/hf-09-360-aeroporto.webp", video=f"{VID}/mundo-submarino-loop.mp4",
          resumo="Um mergulho em realidade virtual no meio do aeroporto, do shopping ou do seu evento.",
          painel="Você está no aeroporto, coloca os óculos e, em segundos, está nadando entre tartarugas e cardumes. O Mundo Submarino 360° leva o oceano até onde as pessoas estão, com uma experiência sensorial que ninguém esquece."),
@@ -105,11 +106,11 @@ PROJETOS = [
          bg=f"{IMG4}/sub-dentro.webp",
          resumo="Uma expedição coletiva dentro de um submarino, com escotilhas, sons e realidade virtual.",
          painel="Escotilhas, luzes azuis e o som do mar: crianças e adultos entram juntos num submarino e partem numa expedição pelos ecossistemas marinhos. Conhecimento que entra pelos olhos, pelos ouvidos e pelo coração."),
-    dict(slug="oceanoterapia", nome="Oceanoterapia", tags="Oceano • Natureza • Bem-estar", card=f"{IMG}/hf-12-oceanoterapia.webp",
-         bg=f"{IMG}/hf-12-oceanoterapia.webp", logo=f"{LOGO}/oceanoterapia.png",
+    dict(slug="oceanoterapia", nome="Oceanoterapia", tags="Oceano • Natureza • Bem-estar", card=f"{IMG4}/mata/mata-05324.webp",
+         bg=f"{IMG4}/mata/mata-05352.webp", logo=f"{LOGO}/oceanoterapia.png",
          resumo="Vivências no mar e na natureza para desacelerar, respirar e se reconectar.",
          painel="Boiar, respirar no ritmo das ondas, silenciar. A Oceanoterapia usa a água e a natureza como caminho para presença e bem-estar, e quem se reconecta com o mar passa a querer protegê-lo."),
-    dict(slug="mata-quantica", nome="Mata Quântica", tags="Mata Atlântica • Sede • Retiros", card=f"{IMG4}/mata-aerea.webp",
+    dict(slug="mata-quantica", nome="Mata Quântica", tags="Mata Atlântica • Sede • Retiros", card=f"{IMG4}/mata/mata-05357.webp",
          bg=f"{IMG4}/mata-aerea.webp", logo=f"{LOGO}/mata-quantica-escura.png",
          resumo="100 hectares de Mata Atlântica preservada na Baía do Iguape, onde funciona a nossa sede.",
          painel="A Mata Atlântica é um dos biomas mais ameaçados do planeta. Às margens da Baía do Iguape, a Mata Quântica protege 100 hectares de floresta, em processo para se tornar uma Reserva Particular do Patrimônio Natural (RPPN), e é a casa do Instituto.",
@@ -548,11 +549,11 @@ def historias_html(items=HISTORIAS):
 
 
 CAPTACAO = [
-    dict(nome="Imersão Azul", tags="Educação • Cultura Oceânica", img=f"{IMG4}/imersao-sala.webp", link="projeto-imersao-azul.html",
+    dict(nome="Imersão Azul", tags="Educação • Cultura Oceânica", img=f"{IMG4}/imersao-livros-card.webp", link="projeto-imersao-azul.html",
          resumo="Leve o oceano para dentro das escolas.", meta=[("Modalidade", "Lei Rouanet"), ("Status", "Em captação"), ("Território", "Bahia"), ("Público", "Estudantes e professores")]),
-    dict(nome="Esporte na Baía do Iguape", tags="Esporte • Educação • Impacto social", img=f"{IMG}/rsf-1.webp", link="baia-do-iguape.html",
+    dict(nome="Esporte na Baía do Iguape", tags="Esporte • Educação • Impacto social", img=f"{IMG}/rsf-4.webp", link="baia-do-iguape.html",
          resumo="Mantenha em campo o Real São Francisco e as regatas da Baía do Iguape.", meta=[("Status", "Em captação"), ("Território", "Baía do Iguape (BA)"), ("Público", "Crianças e jovens")]),
-    dict(nome="Mundo Submarino 360°", tags="Tecnologia • Experiência imersiva", img=f"{IMG}/hf-09-360-aeroporto.webp", link="projeto-mundo-submarino-360.html",
+    dict(nome="Mundo Submarino 360°", tags="Tecnologia • Experiência imersiva", img=f"{IMG4}/mundo-submarino-estande.webp", link="projeto-mundo-submarino-360.html",
          resumo="Leve o fundo do mar para aeroportos, shoppings e eventos com a sua marca.", meta=[("Modalidade", "Patrocínio"), ("Status", "Aberto a parceiros"), ("Público", "Grande público")]),
 ]
 
@@ -574,7 +575,7 @@ DIARIO = [  # categoria, imagem, título, link
     ("Eventos", f"{IMG}/bordejo-premiacao.webp", "Bordejos e regatas de canoa na Baía do Iguape", "baia-do-iguape.html"),
     ("Bastidores", f"{IMG}/prefeitura-1.webp", "Realidade virtual apresentada à Prefeitura de Cachoeira", "projeto-submarino-imersivo.html"),
     ("Notícias", f"{IMG}/escola-1.webp", "Dia das Crianças com educação ambiental nas escolas", "baia-do-iguape.html"),
-    ("Ciência & Oceano", f"{IMG}/hf-02-terra-oceano.webp", "Os 7 princípios da Cultura Oceânica", "o-instituto.html#proposito"),
+    ("Ciência & Oceano", f"{IMG4}/tartaruga.webp", "Os 7 princípios da Cultura Oceânica", "o-instituto.html#proposito"),
     ("Projetos", f"{IMG4}/imersao-sala.webp", "Imersão Azul: o oceano dentro da sala de aula", "projeto-imersao-azul.html"),
 ]
 
@@ -605,13 +606,13 @@ NEWSLETTER = f"""
 
 EIXOS_HOME = [
     ("01", "Conhecer", "Cultura Oceânica e educação", "Traduzimos a ciência do oceano em experiências educativas acessíveis, capazes de despertar curiosidade, consciência e pertencimento.",
-     f"{IMG4}/imersao-sala.webp", [("projeto-imersao-azul.html", "Imersão Azul"), ("projeto-palestras.html", "Palestras")]),
+     f"{IMG4}/palestra-7.webp", [("projeto-imersao-azul.html", "Imersão Azul"), ("projeto-palestras.html", "Palestras")]),
     ("02", "Experimentar", "Tecnologia e experiências imersivas", "Realidade virtual, audiovisual e experiências sensoriais para que qualquer pessoa possa conhecer e viver o universo oceânico.",
      f"{IMG4}/sub-familia.webp", [("projeto-mundo-submarino-360.html", "Mundo Submarino 360°"), ("projeto-submarino-imersivo.html", "Submarino Imersivo")]),
     ("03", "Conectar", "Oceanoterapia e bem-estar", "Experiências que estimulam a reconexão consciente com a água e com a natureza, promovendo presença e bem-estar.",
-     f"{IMG}/hf-12-oceanoterapia.webp", [("projeto-oceanoterapia.html", "Oceanoterapia"), ("projeto-mata-quantica.html", "Mata Quântica")]),
+     f"{IMG4}/mata/mata-05314.webp", [("projeto-oceanoterapia.html", "Oceanoterapia"), ("projeto-mata-quantica.html", "Mata Quântica")]),
     ("04", "Transformar", "Territórios e regeneração", "Iniciativas ligadas à realidade social, ambiental e cultural dos territórios e das suas comunidades.",
-     f"{IMG4}/iguape-4.webp", [("baia-do-iguape.html", "Ações na Baía do Iguape"), ("atuacao-e-impacto.html#quem-apoiamos", "Quem apoiamos")]),
+     f"{IMG}/rsf-2.webp", [("baia-do-iguape.html", "Ações na Baía do Iguape"), ("atuacao-e-impacto.html#quem-apoiamos", "Quem apoiamos")]),
 ]
 
 
@@ -684,11 +685,12 @@ index = head("Instituto Gaia Soul | O oceano nos conecta",
 
     <section class="sec" id="instituto">
         <div class="wrap grid2">
-            <div class="strips" data-rv="l">
+            <div class="strips s5" data-rv="l">
                 <div class="s"><img src="{IMG4}/tartaruga.webp" alt="Tartaruga marinha nadando" loading="lazy"></div>
-                <div class="s"><img src="{IMG4}/imersao-sala.webp" alt="Estudantes em aula do Imersão Azul" loading="lazy"></div>
-                <div class="s"><img src="{IMG4}/iguape-3.webp" alt="Jovens do time Real São Francisco" loading="lazy"></div>
-                <div class="s"><img src="{IMG4}/mata-aerea.webp" alt="Mata Quântica vista do alto" loading="lazy"></div>
+                <div class="s"><img src="{IMG4}/mata/mata-05086.webp" alt="Guardião com a camiseta do Instituto Gaia Soul" loading="lazy"></div>
+                <div class="s"><img src="{IMG4}/mergulho-coral.webp" alt="Mergulhador entre corais" loading="lazy"></div>
+                <div class="s"><img src="{IMG4}/golfinhos.webp" alt="Golfinhos nadando no mar" loading="lazy"></div>
+                <div class="s"><img src="{IMG4}/sub-mergulho.webp" alt="Mergulho entre cardumes" loading="lazy"></div>
             </div>
             <div data-rv="r">
                 <span class="script">quem somos</span>
@@ -812,7 +814,7 @@ instituto = head("O Instituto | Instituto Gaia Soul",
     f"{IMG4}/bg-baleia.webp", "O Instituto", "O Instituto", "Aproximamos pessoas do oceano para transformar futuros.",
     """<p>O Instituto Gaia Soul nasceu em 2019, em Salvador, com um propósito simples e enorme: promover a consciência ecológica e levar a <strong>Cultura Oceânica</strong> para toda a sociedade, em especial para crianças e jovens.</p>
                 <p>Unimos educação, ciência, cultura, tecnologia e bem-estar para transformar conhecimento em consciência e consciência em ação.</p>""",
-    f"{IMG4}/atoba.webp", '<a href="seja-um-guardiao.html" class="btn btn-navy">Seja um Guardião</a><a href="contato.html" class="btn btn-line">Fale Conosco</a>',
+    f"assets/images/ocean-gallery.png", '<a href="seja-um-guardiao.html" class="btn btn-navy">Seja um Guardião</a><a href="contato.html" class="btn btn-line">Fale Conosco</a>',
     alt="Atobá olhando para a câmera") + f"""
     <section class="manifesto" style="background-image:url('{IMG4}/mergulho-coral.webp')">
         <div class="wrap">
@@ -831,10 +833,10 @@ instituto = head("O Instituto | Instituto Gaia Soul",
                 <p class="lead">Nossa atuação nasce na Bahia, um território profundamente ligado ao mar, e chega a escolas, comunidades, empresas e a qualquer pessoa disposta a olhar o oceano de um jeito novo.</p>
             </div>
             <div class="strips" data-rv="r" style="height:400px">
-                <div class="s"><img src="{IMG4}/imersao-vr-menino.webp" alt="Menino com óculos de realidade virtual" loading="lazy"></div>
-                <div class="s"><img src="{IMG4}/palestra-3.webp" alt="Marcelo Telles em palestra" loading="lazy"></div>
-                <div class="s"><img src="{IMG4}/iguape-2.webp" alt="Marisqueiras da Baía do Iguape" loading="lazy"></div>
-                <div class="s"><img src="{IMG}/hf-12-oceanoterapia.webp" alt="Vivência de Oceanoterapia" loading="lazy"></div>
+                <div class="s"><img src="{IMG4}/mata/mata-05086.webp" alt="Guardião com a camiseta do Instituto Gaia Soul" loading="lazy"></div>
+                <div class="s"><img src="assets/images/v4/bg-pescador.webp" alt="Marcelo Telles em palestra" loading="lazy"></div>
+                <div class="s"><img src="assets/images/v2/baia-iguape-aerea.webp" alt="Marisqueiras da Baía do Iguape" loading="lazy"></div>
+                <div class="s"><img src="assets/images/v2/escola-2.webp" alt="Vivência na Mata Quântica" loading="lazy"></div>
             </div>
         </div>
     </section>
@@ -872,7 +874,7 @@ instituto = head("O Instituto | Instituto Gaia Soul",
         </div>
     </section>
 
-    <section class="manifesto" style="background-image:url('{IMG}/hf-02-terra-oceano.webp')">
+    <section class="manifesto" style="background-image:url('{IMG}/baia-iguape-aerea.webp')">
         <div class="wrap grid2" style="align-items:center">
             <div data-rv="l">
                 <span class="script" style="color:var(--piscina)">cultura oceânica</span>
@@ -982,7 +984,7 @@ p_imersao = pagina_projeto(PMAP["imersao-azul"], f"{IMG4}/imersao-capa.webp", "O
             <div class="galeria-imersao" data-rv>
                 <figure class="g big"><img src="{IMG4}/imersao-sala.webp" alt="Turma em aula do Imersão Azul" loading="lazy"><figcaption>Cultura Oceânica em sala de aula</figcaption></figure>
                 <figure class="g"><img src="{IMG4}/imersao-vr-menino.webp" alt="Estudante com óculos de realidade virtual" loading="lazy"><figcaption>Mergulho em realidade virtual</figcaption></figure>
-                <figure class="g"><img src="{IMG}/hf-04-imersao-azul-vr.webp" alt="Estudantes com óculos de realidade virtual" loading="lazy"><figcaption>A turma inteira no fundo do mar</figcaption></figure>
+                <figure class="g"><img src="{IMG}/prefeitura-2.webp" alt="Realidade virtual apresentada em Cachoeira" loading="lazy"><figcaption>Realidade virtual apresentada em Cachoeira</figcaption></figure>
                 <figure class="g wide"><img src="{IMG4}/imersao-capa.webp" alt="Ilustração: sala de aula dentro do oceano" loading="lazy"><figcaption>E se o fundo do mar coubesse na sala de aula?</figcaption></figure>
             </div>
             <div class="btns center" style="margin-top:2.4rem">{IMERSAO_EXT}<a href="contato.html?assunto=Escolas" class="btn btn-line">Quero o Imersão Azul na minha escola</a></div>
@@ -1018,7 +1020,7 @@ p_sub = pagina_projeto(PMAP["submarino-imersivo"], f"{IMG4}/sub-mergulho.webp", 
 p_oceano = pagina_projeto(PMAP["oceanoterapia"], f"{IMG4}/golfinhos.webp", "O oceano educa de um jeito diferente.",
     """<p>Ele ensina ritmo, pausa, escuta e pertencimento. A <strong>Oceanoterapia</strong> usa a conexão consciente com a água e com a natureza como caminho para presença, equilíbrio e bem-estar.</p>
                 <p>E tem um efeito colateral bonito: <strong>quem se reconecta com o mar passa a querer protegê-lo</strong>.</p>""",
-    f"{IMG4}/aquaterapia.webp", f"""
+    f"assets/images/v2/hf-12-oceanoterapia.webp", f"""
     <section class="sec">
         <div class="wrap">
             {sec_head("", "Vivências de Oceanoterapia", "Experiências guiadas no mar e na Mata Quântica, para grupos, empresas e escolas.", script="como acontece")}
@@ -1030,13 +1032,26 @@ p_oceano = pagina_projeto(PMAP["oceanoterapia"], f"{IMG4}/golfinhos.webp", "O oc
             </div>
         </div>
     </section>
-    <section class="sec espuma"><div class="wrap">{galeria([(f"{IMG}/hf-12-oceanoterapia.webp", "Pessoa boiando no mar"), (f"{IMG4}/aquaterapia.webp", "Banho de cachoeira"), (f"{IMG4}/golfinhos.webp", "Golfinhos no mar"), (f"{IMG4}/mata-casa.webp", "Casa na Mata Quântica")])}</div></section>""",
+    <section class="sec espuma"><div class="wrap">{galeria([(f"{IMG4}/ia-boiando.webp", "Flutuação consciente no mar"), (f"{IMG4}/aquaterapia.webp", "Banho de cachoeira"), (f"{IMG4}/ia-maos-agua.webp", "Presença e conexão com a água"), (f"{IMG4}/ia-grupo-respiracao.webp", "Respiração no ritmo das ondas")])}</div></section>
+    <section class="sec areia" id="ebook">
+        <div class="wrap grid2 ebook-oceano">
+            <a class="ebook-capa" href="{OCEANO_EBOOK_URL}" target="_blank" rel="noopener" data-rv="l"><img src="{IMG4}/ebook-oceanoterapia-capa.webp" alt="Capa do e-book Oceanoterapia: o poder restaurador da água, de Marcelo Dantas Telles" loading="lazy"></a>
+            <div data-rv="r">
+                <span class="script">e-book gratuito</span>
+                <h2 class="t-sec">Sua mente está cheia demais?</h2>
+                <p class="lead">No e-book <strong>Oceanoterapia: o poder restaurador da água</strong>, Marcelo Dantas Telles transforma décadas de vida no mar em um guia prático para desacelerar, respirar e voltar a se sentir presente.</p>
+                <p class="lead">Antes de receber, responda a um quiz rápido e descubra o seu <strong>nível de saturação mental</strong>. O diagnóstico e o e-book chegam na hora.</p>
+                <ul class="contatos" style="margin:1rem 0 1.6rem"><li><i class="fas fa-check"></i> Diagnóstico do seu nível de saturação mental</li><li><i class="fas fa-check"></i> E-book completo em PDF ou para ler online</li><li><i class="fas fa-check"></i> Gratuito</li></ul>
+                <a href="{OCEANO_EBOOK_URL}" target="_blank" rel="noopener" class="btn btn-cta">Fazer o quiz e receber o e-book <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>""",
     btns='<a href="contato.html?assunto=Experiências" class="btn btn-navy">Quero viver a Oceanoterapia</a><a href="contato.html?assunto=Parcerias%20e%20patroc%C3%ADnios" class="btn btn-line">Levar para a minha empresa</a>')
 
-p_mata = pagina_projeto(PMAP["mata-quantica"], f"{IMG4}/bg-floresta.webp", "Onde a floresta encontra o mar.",
+p_mata = pagina_projeto(PMAP["mata-quantica"], f"{IMG4}/mata/mata-04522.webp", "Onde a floresta encontra o mar.",
     """<p>A Mata Atlântica é o segundo bioma mais ameaçado do mundo, e o desmatamento dela já avançou mais rápido que o da Amazônia.</p>
                 <p>Diante disso, destinamos <strong>100 hectares de floresta preservada</strong> às margens da Baía do Iguape, em processo para se tornar uma <strong>Reserva Particular do Patrimônio Natural (RPPN)</strong>. É aqui que funciona a sede do Instituto e onde acontecem retiros, vivências e encontros.</p>""",
-    f"{IMG4}/mata-aerea.webp", f"""
+    f"assets/images/v4/mata/mata-04522.webp", f"""
     <section class="sec">
         <div class="wrap grid2">
             <div data-rv="l">
@@ -1045,7 +1060,7 @@ p_mata = pagina_projeto(PMAP["mata-quantica"], f"{IMG4}/bg-floresta.webp", "Onde
                 <p class="lead">A Mata Quântica recebe grupos, famílias e empresas para hospedagens e experiências na natureza. <strong>Parte do valor de cada hospedagem é destinada aos projetos do Instituto Gaia Soul.</strong></p>
                 <div class="btns"><a href="{MATA_URL}" target="_blank" rel="noopener" class="btn btn-cta">Conheça a Mata Quântica <i class="fas fa-arrow-up-right-from-square"></i></a></div>
             </div>
-            {galeria([(f"{IMG4}/mata-casa.webp", "Casa na Mata Quântica"), (f"{IMG4}/baia-iguape.webp", "Baía do Iguape")], "wide")}
+            {galeria([(f"assets/images/v4/mata-casa.webp", "Casa na Mata Quântica"), (f"{IMG4}/mata/mata-05328.webp", "Piscina natural"), (f"assets/images/v2/baia-iguape-aerea.webp", "Encontros e retiros"), (f"{IMG4}/mata/mata-05167.webp", "Vivências ao ar livre")], "wide g2")}
         </div>
     </section>
     <section class="sec espuma">
@@ -1059,8 +1074,8 @@ p_mata = pagina_projeto(PMAP["mata-quantica"], f"{IMG4}/bg-floresta.webp", "Onde
 p_palestras = pagina_projeto(PMAP["palestras"], f"{IMG4}/bg-baleia.webp", "Educação e conscientização ambiental.",
     """<p>Marcelo Telles é oceanógrafo e passou boa parte da vida em alto mar. Das travessias, tempestades e encontros com a vida marinha nasceram palestras que <strong>emocionam, ensinam e mudam comportamentos</strong>.</p>
                 <p>Ele já palestrou em congressos internacionais, eventos de grande público, escolas e empresas, levando a educação oceânica para ambientes corporativos e educacionais.</p>""",
-    f"{IMG4}/palestra-1.webp", f"""
-    <section class="sec"><div class="wrap">{galeria(GAL_PALESTRAS[:8])}</div></section>
+    f"{IMG4}/palestra-4.webp", f"""
+    <section class="sec"><div class="wrap">{galeria([g for g in GAL_PALESTRAS if "palestra-4" not in g[0]])}</div></section>
     <section class="sec espuma">
         <div class="wrap caixas">
             <div class="caixa" data-rv style="background:#fff"><h3>A conexão com o mar: um convite à reflexão</h3><p>As histórias vividas em alto mar viram fonte de inspiração. Entre os temas:</p><ul><li><strong>Oceano e ecossistemas costeiros:</strong> como o litoral e a saúde do planeta estão ligados.</li><li><strong>Mudanças climáticas:</strong> o que já está acontecendo e o que podemos fazer.</li><li><strong>Sustentabilidade no dia a dia:</strong> práticas simples para pessoas e empresas.</li></ul></div>
@@ -1078,9 +1093,9 @@ EIXOS = [
     ("01", "Conhecer", "Cultura Oceânica e educação", "Traduzimos a ciência do oceano em experiências educativas acessíveis, que despertam curiosidade, consciência e pertencimento.",
      f"{IMG4}/imersao-sala.webp", [("projeto-imersao-azul.html", "Imersão Azul"), ("projeto-palestras.html", "Palestras")]),
     ("02", "Experimentar", "Tecnologia e experiências imersivas", "Realidade virtual, audiovisual e experiências sensoriais para que qualquer pessoa possa viver o universo oceânico.",
-     f"{IMG}/hf-09-360-aeroporto.webp", [("projeto-mundo-submarino-360.html", "Mundo Submarino 360°"), ("projeto-submarino-imersivo.html", "Submarino Imersivo")]),
+     f"{IMG4}/sub-familia.webp", [("projeto-mundo-submarino-360.html", "Mundo Submarino 360°"), ("projeto-submarino-imersivo.html", "Submarino Imersivo")]),
     ("03", "Conectar", "Oceanoterapia e bem-estar", "Experiências que estimulam a reconexão consciente com a água e com a natureza, promovendo presença e bem-estar.",
-     f"{IMG}/hf-12-oceanoterapia.webp", [("projeto-oceanoterapia.html", "Oceanoterapia"), ("projeto-mata-quantica.html", "Mata Quântica")]),
+     f"{IMG4}/mata/mata-04739.webp", [("projeto-oceanoterapia.html", "Oceanoterapia"), ("projeto-mata-quantica.html", "Mata Quântica")]),
     ("04", "Transformar", "Territórios e regeneração", "Iniciativas ligadas à realidade social, ambiental e cultural dos territórios e das suas comunidades.",
      f"{IMG4}/iguape-4.webp", [("baia-do-iguape.html", "Ações na Baía do Iguape"), ("#quem-apoiamos", "Quem apoiamos")]),
 ]
@@ -1194,7 +1209,7 @@ iguape = head("Ações na Baía do Iguape | Instituto Gaia Soul",
     "Bordejos e regatas de canoa", "As tradicionais regatas de canoa a vela mantêm viva a cultura do mar e reúnem toda a comunidade.",
     [(f"{IMG}/bordejo-3.webp", "Canoas a vela na praia"), (f"{IMG}/bordejo-premiacao.webp", "Premiação do Grande Bordejo"), (f"{IMG}/bordejo-1.webp", "Regata de canoas"), (f"{IMG}/bordejo-2.webp", "Canoa a vela ao pôr do sol")], "alt") + acao(
     "Associação de Pescadores e Marisqueiras de Cachoeira", "Convênio de cooperação e presença nas datas que importam: Natal, Dia das Mães, Dia dos Pais e Dia das Crianças.",
-    [(f"{IMG4}/iguape-2.webp", "Marisqueiras com as doações"), (f"{IMG4}/iguape-5.webp", "Entrega de kits na associação"), (f"{IMG}/pescadores-3.webp", "Confraternização na praia"), (f"{IMG}/maes-3.webp", "Dia das Mães")]) + acao(
+    [(f"{IMG4}/iguape-2.webp", "Marisqueiras com as doações"), (f"{IMG4}/iguape-5.webp", "Entrega de kits na associação"), (f"{IMG}/pescadores-3.webp", "Confraternização na praia"), (f"{IMG}/maes-3.webp", "Dia das Mães"), (f"{IMG}/pescadores-1.webp", "Entrega na sede do sindicato"), (f"{IMG}/pescadores-2.webp", "Confraternização com as famílias"), (f"{IMG}/maes-1.webp", "Festa do Dia das Mães"), (f"{IMG}/maes-2.webp", "Presentes do Dia das Mães")]) + acao(
     "Educação ambiental e Dia das Crianças", "Nas escolas, levamos educação ambiental e alegria: brinquedos e chocolates para as crianças das comunidades.",
     [(f"{IMG}/escola-1.webp", "Educação ambiental na escola"), (f"{IMG}/escola-3.webp", "Crianças com a equipe do Instituto"), (f"{IMG}/brinquedos-1.webp", "Crianças com os brinquedos recebidos"), (f"{IMG}/brinquedos-2.webp", "Crianças escolhendo brinquedos")], "alt") + f"""
     <section class="sec areia">

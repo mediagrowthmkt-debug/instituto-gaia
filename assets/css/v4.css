@@ -143,6 +143,7 @@ a:hover .more i, .more:hover i { transform: translateX(4px); }
 
 /* O Instituto: faixas verticais (igual ao site antigo) */
 .strips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; height: 440px; }
+.strips.s5 { grid-template-columns: repeat(5, 1fr); }
 .strips .s { border-radius: 12px; overflow: hidden; box-shadow: var(--sh); }
 .strips .s:nth-child(even) { margin-top: 42px; }
 .strips .s:nth-child(odd) { margin-bottom: 42px; }
@@ -387,6 +388,7 @@ a:hover .more i, .more:hover i { transform: translateX(4px); }
 .galeria.g3 { grid-template-columns: repeat(3, 1fr); }
 .galeria .g { aspect-ratio: 4/5; border-radius: 10px; overflow: hidden; cursor: zoom-in; position: relative; background: #e4ecf1; }
 .galeria.wide .g { aspect-ratio: 4/3; }
+.galeria.g2 { grid-template-columns: repeat(2, 1fr); }
 .galeria img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s; }
 .galeria .g:hover img { transform: scale(1.06); }
 .galeria .g figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: .6rem .8rem; font-size: .8rem; color: #fff; background: linear-gradient(transparent, rgba(0, 0, 0, .65)); }
@@ -620,6 +622,8 @@ a:hover .more i, .more:hover i { transform: translateX(4px); }
     .logos .lg { width: calc(50% - .6rem); height: 84px; }
     .wrap { width: calc(100% - 32px); }
     .strips { height: 300px; gap: 8px; }
+    .strips.s5 { grid-template-columns: repeat(4, 1fr); }
+    .strips.s5 .s:nth-child(5) { display: none; }
     .fato { grid-template-columns: 90px 1fr; gap: 1rem; }
     .fato .num { font-size: 7rem; }
     .fato p { font-size: 1.05rem; }
@@ -694,3 +698,10 @@ a:hover .more i, .more:hover i { transform: translateX(4px); }
     .mq { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
     .mq-dup { display: none; }
 }
+
+/* Oceanoterapia: bloco do e-book */
+.ebook-oceano { align-items: center; }
+.ebook-capa { display: block; max-width: 340px; margin: 0 auto; border-radius: 6px; overflow: hidden; box-shadow: 0 24px 50px rgba(10, 46, 77, .35); transform: rotate(-2deg); transition: transform .5s; }
+.ebook-capa:hover { transform: rotate(0) translateY(-6px); }
+.ebook-capa img { display: block; width: 100%; height: auto; }
+@media (max-width: 768px) { .ebook-capa { max-width: 240px; } }
